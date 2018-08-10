@@ -32,25 +32,6 @@ nav .input-field input {
 .dropdown-content li:hover {
     background-color: rgba(0, 0, 0, 0);
 }
-.parallax-container {
-    height: 800px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.picture {
-    width: 100%;
-}
-#story {
-    margin-top: 20px;
-}
-.content {
-    width: 900px;
-    margin: 30px auto;
-    text-align: justify;
-    font-size: 20px;
-    line-height: 30px;
-}
 .section .table-of-contents {
     margin-top: -20px;
 }
@@ -97,6 +78,33 @@ nav .input-field input {
 .nav-extend {
     margin-bottom: 0px;
     height: 100px;
+}
+.parallax-container {
+    height: 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.picture {
+    width: 100%;
+}
+#story {
+    margin-top: 20px;
+}
+.content {
+    width: 1200px;
+    margin: 30px auto;
+    text-align: justify;
+    font-size: 20px;
+    line-height: 30px;
+}
+.titleList {
+    font-weight: bold;
+    color: #d13400;
+    list-style: none;
+}
+.weaponPic {
+    width: 100%;
 }
 /*pour mobile*/
 

@@ -25,22 +25,22 @@ and open the template in the editor.
             </ul>
             <!-- Dropdown tuto Structure -->
             <ul id="dropdown2" class="dropdown-content">
-                <li><a href="#!">Quêtes</a></li>
-                <li><a href="#!">Raids</a></li>
-                <li><a href="#!">Stuffs</a></li>
-                <li><a href="#!">Farm</a></li>
+                <li><a href="quest.php">Quêtes</a></li>
+                <li><a href="raid.php">Raids</a></li>
+                <li><a href="stuff.php">Stuffs</a></li>
+                <li><a href="farm.php">Farm</a></li>
 
             </ul>
             <!-- Dropdown contribution Structure -->
             <ul id="dropdown3" class="dropdown-content">
-                <li><a href="#!">Vidéos</a></li>
-                <li><a href="#!">Streaming</a></li>
-                <li><a href="#!">Artworks</a></li>
+                <li><a href="video.php">Vidéos</a></li>
+                <li><a href="streaming.php">Streaming</a></li>
+                <li><a href="artwork.php">Artworks</a></li>
             </ul>
             <!-- Dropdown forum Structure -->
             <ul id="dropdown4" class="dropdown-content">
-                <li><a href="#!">catégories</a></li>
-                <li><a href="#!">Tchat</a></li>
+                <li><a href="forum.php">catégories</a></li>
+                <li><a href="tchat.php">Tchat</a></li>
             </ul>
             <nav class="nav-extend">
                 <div class="nav-wrapper">
