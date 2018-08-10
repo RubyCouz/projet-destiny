@@ -1,0 +1,115 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Quicksand;
+    background: #12171C;
+    color: white;
+}
+nav {
+    background: #12171C;
+}
+nav ul {
+    transition: 0.5s;
+}
+nav ul li a { 
+    color: #ff7f11;
+}
+nav .input-field {
+height: 30px;
+padding-top: 17px;
+
+}
+nav .input-field input {
+    border-radius: 12px;
+    border: 1px solid #12171C;
+}
+.dropdown-content {
+    background: #12171C;
+}
+.dropdown-content li > a {
+    color: #ff7f11;
+}
+.dropdown-content li:hover {
+    background-color: rgba(0, 0, 0, 0);
+}
+.parallax-container {
+    height: 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.picture {
+    width: 100%;
+}
+#story {
+    margin-top: 20px;
+}
+.content {
+    width: 900px;
+    margin: 30px auto;
+    text-align: justify;
+    font-size: 20px;
+    line-height: 30px;
+}
+.section .table-of-contents {
+    margin-top: -20px;
+}
+.table-of-contents a.active {
+    border-bottom: 18px solid #d13400;
+    border-left: none;
+    background: none;
+    color: #d13400;
+}
+.table-of-contents a:hover {
+    border-left: none;
+    background: none;
+    transition: 0.2s;
+    color: #d13400;
+}
+.tabs .tab a {
+    color: #ff5017;   
+}
+.tabs .tab a:hover {
+    color: #d13400;
+}
+.tabs .tab a.active {
+    color: #d13400;
+}
+.tabs {
+    padding-top: 0px;
+    background: #12171C;   
+}
+.center {
+    margin-left: 250px;
+}
+.centerCharacters {
+    margin-left: 60px;
+}
+.centerEnnemies {
+    margin-left: 80px;
+}
+.centerFactions {
+    margin-left: 30px;
+}
+.centerFactionsAstre {
+    margin-left: 70px;
+}
+.nav-extend {
+    margin-bottom: 0px;
+    height: 100px;
+}
+/*pour mobile*/
+
+@media only screen and (max-width : 980px) {
+    body {
+        padding-left: 0;
+    }
+    .parallax {
+        height: 400px;
+        background-image: fixed center no-repeat cover;
+    }
+    .parallax-container{
+        height: 400px;
+    }
+}
+
