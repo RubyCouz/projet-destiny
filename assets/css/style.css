@@ -1,4 +1,4 @@
-body {
+body, .page-footer {
     margin: 0;
     padding: 0;
     font-family: Quicksand;
@@ -8,20 +8,22 @@ body {
 nav {
     background: #12171C;
 }
-nav ul {
-    transition: 0.5s;
-}
 nav ul li a { 
     color: #ff7f11;
 }
 nav .input-field {
-height: 30px;
-padding-top: 17px;
-
+    height: 30px;
+    padding-top: 17px;
+}
+.material-icons {
+    color: #ff7f11;
 }
 nav .input-field input {
     border-radius: 12px;
     border: 1px solid #12171C;
+}
+.label-icon {
+    margin-top: -12px;
 }
 .dropdown-content {
     background: #12171C;
@@ -30,31 +32,18 @@ nav .input-field input {
     color: #ff7f11;
 }
 .dropdown-content li:hover {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: #33332d;
 }
-.section .table-of-contents {
-    margin-top: -20px;
+.tabs.tabs-transparent .tab a:hover,
+.tabs.tabs-transparent .tab a.active {
+  color: #d13400;
 }
-.table-of-contents a.active {
-    border-bottom: 18px solid #d13400;
-    border-left: none;
-    background: none;
-    color: #d13400;
+.error {
+    color: red;
 }
-.table-of-contents a:hover {
-    border-left: none;
-    background: none;
-    transition: 0.2s;
-    color: #d13400;
-}
-.tabs .tab a {
-    color: #ff5017;   
-}
-.tabs .tab a:hover {
-    color: #d13400;
-}
-.tabs .tab a.active {
-    color: #d13400;
+.tabs.tabs-transparent .indicator {
+  background-color: #d13400;
+  height: 3px;
 }
 .tabs {
     padding-top: 0px;
@@ -85,9 +74,7 @@ nav .input-field input {
     background-repeat: no-repeat;
     background-size: cover;
 }
-.picture {
-    width: 100%;
-}
+
 #story {
     margin-top: 20px;
 }
@@ -95,20 +82,167 @@ nav .input-field input {
     width: 1200px;
     margin: 30px auto;
     text-align: justify;
-    font-size: 20px;
+    font-size: 15px;
     line-height: 30px;
+    margin-top: 100px;
 }
 .titleList {
     font-weight: bold;
     color: #d13400;
     list-style: none;
 }
+.aceList {
+    font-weight: bold;
+    color: #d13400;   
+}
 .weaponPic {
     width: 100%;
 }
-/*pour mobile*/
+.picture { 
+    width: 100%;
+}
+.videoDestiny {
+    width: 100%;
+    height: 700px;
+}
+.brand-logo {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+.modal {
+    border-radius: 15px;
+    background: #12171C;
+    width: 500px;
+}
+.modal .modal-footer {
+    background: #12171C;
 
-@media only screen and (max-width : 980px) {
+}
+.modal-content {
+    background: #12171C;
+    height: 100px;
+}
+.modal-footer  {
+    background: #12171C;
+} 
+.btn, .btn-flat {
+    background: #ff7f11;
+    color: #12171C;
+    border-radius: 15px;
+}
+.btn, .btn-large, .btn-flat, .add {
+    margin-left: -44px;
+}
+.addCart {
+    margin-left: -20px;
+}
+
+.validate {
+    background: white;
+    color: white;
+}
+.btn:hover {
+    background: #d13400;
+}
+/* css pour le checkbox sur modal de connection */
+
+
+.card {
+    color: #12171C;
+    width: 300px;
+    height: 500px;
+    /*background: #12171C;*/
+}
+.card-action {
+    height: 60px;
+}
+.description {
+    color: #12171C;
+}
+.goodiesPicMin {
+    width: 100%;
+}
+/* lors du zoom sur une image */
+#materialbox-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #292929;
+    background
+    z-index: 1000;
+    will-change: opacity;
+}
+/* ombre pour la materialbox */
+.card-panel:hover {
+    -webkit-box-shadow: 1px 3px 3px 1px #ff7f11, 1px 4px 2px -1px #ff7f11, 1px 2px 6px 1px #ff7f11;
+      box-shadow: 1 3px 3px 1px #ff7f11, 1px 4px 2px -1px #ff7f11, 1px 2px 6px 1px #ff7f11;
+}
+
+/**
+* stylisation du datepicker 
+*/
+
+/*selection du jour */
+.picker__day--selected,
+.picker__day--selected:hover,
+.picker--focused .picker__day--selected {
+  border-radius: 50%;
+  -webkit-transform: scale(0.75);
+          transform: scale(0.75);
+  background: #d13400;
+  color: #ffffff;
+}
+/* encart de gauche */
+.picker__date-display {
+  text-align: left;
+  background-color: #12171C;
+  color: #fff;
+  padding: 18px;
+  font-weight: 300;
+}
+/* bouton et footer datepicker */
+.picker__footer {
+  text-align: right;
+  padding: 5px 10px;
+}
+.picker__close, .picker__today, .picker__clear {
+  font-size: 1.1rem;
+  padding: 0 1rem;
+  color: #12171C;
+  background: none;
+}
+.picker__today {
+    margin-right: 40px;
+}
+.picker__clear{
+    margin-left: 10px;
+    color: #d13400;
+}
+.picker__day.picker__day--today {
+  color: #ff7f11;
+}
+/**
+* stylisation du formulaire
+*/
+
+
+/**
+* modification de la liste déroulante 
+*/
+/* couleur de la selection désactivé */
+.select-dropdown li.disabled,
+.select-dropdown li.disabled > span,
+.select-dropdown li.optgroup {
+  color: #9E9E9E;
+  background-color: transparent;
+}
+/**
+* pour mobile
+*/
+
+@media only screen and (max-width : 992px) {
     body {
         padding-left: 0;
     }
