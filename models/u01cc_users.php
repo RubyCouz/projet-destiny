@@ -5,7 +5,7 @@
   * classe utilisant la table des utilisateurs
   * @author cedric
   */
- class u01cc_users extends database {
+ class u01cc_users {
 
      public $id = '';
      public $lastname = '';
@@ -15,12 +15,12 @@
      public $gamerTag = '';
      public $password = '';
      public $confirmPassword = '';
-     public $console = '';
+     public $id_u01cc_consoles = '';
 
      public function __construct()
      {
-         parent::__construct();
-         $this->dbConnect();
+         $database = database::getInstance();
+         $this->pdo = $database->pdo;
      }
 
      /**
@@ -29,8 +29,8 @@
       */
      public function addUser()
      {
-         $query = 'INSERT INTO `u01cc_users` (`lastname`, `firstname`, `birthdate`, `email`, `gamerTag`, `password`, `console`) '
-                 . 'VALUES (:lastname, :firstname, :birthdate, :email, :gamerTag, :password, :console)'; //  :quelquechose => marqueur nominatif , sans valeur pour l'instant, sera attribuer plus tard (= attribut)
+         $query = 'INSERT INTO `u01cc_users` (`lastname`, `firstname`, `birthdate`, `email`, `gamerTag`, `password`, `id_u01cc_consoles`) '
+                 . 'VALUES (:lastname, :firstname, :birthdate, :email, :gamerTag, :password, :consoles)'; //  :quelquechose => marqueur nominatif , sans valeur pour l'instant, sera attribuer plus tard (= attribut)
          $addUser = $this->pdo->prepare($query);
          $addUser->bindValue(':lastname', $this->lastname, PDO::PARAM_STR); // bindValue( marqueur nominatif, valeur a lui attribuer, type de valeur attribuée) ATTRIBUE UNE VALEUR A UN MARQUER NOMINATIF
          $addUser->bindValue(':firstname', $this->firstname, PDO::PARAM_STR);
@@ -38,7 +38,7 @@
          $addUser->bindValue(':email', $this->email, PDO::PARAM_STR);
          $addUser->bindValue(':gamerTag', $this->gamerTag, PDO::PARAM_STR);
          $addUser->bindValue(':password', $this->password, PDO::PARAM_STR);
-         $addUser->bindValue(':console', $this->console, PDO::PARAM_STR);
+         $addUser->bindValue(':consoles', $this->id_u01cc_consoles, PDO::PARAM_STR);
          //EXECUTION DE LA REQUETE
          return $addUser->execute();
      }
@@ -53,6 +53,33 @@
          {
              $selectResult = $result->fetch(PDO::FETCH_OBJ);
              $state = $selectResult->count;
+         }
+         return $state;
+     }
+
+/**
+      * Méthode permettant la connexion d'un utilisateur
+      */
+
+     public function userConnection()
+     {
+         $state = false;
+         $query = 'SELECT `id`, `gamerTag`, `password` '
+                 . 'FROM `u01cc_users` '
+                 . 'WHERE `gamerTag` = :gamerTag';
+         $result = $this->pdo->prepare($query);
+         $result->bindValue(':gamerTag', $this->gamerTag, PDO::PARAM_STR);
+         if ($result->execute())
+         { // on verifie la bonne exécution de la requete
+             $selectResult = $result->fetch(PDO::FETCH_OBJ);
+             if (is_object($selectResult))
+             { // on vérifie qu'un utilisateur a bien été trouvé
+                 // on hydrate
+                 $this->gamerTag = $selectResult->gamerTag;
+                 $this->password = $selectResult->password;
+                 $this->id = $selectResult->id;
+                 $state = true;
+             }
          }
          return $state;
      }

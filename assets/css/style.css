@@ -5,6 +5,7 @@ body, .page-footer {
     background: #12171C;
     color: white;
 }
+
 nav {
     background: #12171C;
 }
@@ -34,21 +35,26 @@ nav .input-field input {
 .dropdown-content li:hover {
     background-color: #33332d;
 }
-.tabs.tabs-transparent .tab a:hover,
-.tabs.tabs-transparent .tab a.active {
-  color: #d13400;
+.tabs .tab a:hover,
+.tabs .tab a.active {
+    background: #12171C;   
+    color: #d13400;
 }
 .error {
     color: red;
 }
-.tabs.tabs-transparent .indicator {
-  background-color: #d13400;
-  height: 3px;
+.tabs .indicator {
+    background-color: #d13400;
+    height: 3px;
+
 }
-.tabs {
+.tabs .tab a{
     padding-top: 0px;
     background: #12171C;   
+    text-decoration: none;
+    color: #ff7f11;
 }
+
 .center {
     margin-left: 250px;
 }
@@ -109,12 +115,12 @@ nav .input-field input {
     margin-top: 10px;
     margin-left: 20px;
 }
-.modal {
+.modal, .modal2 {
     border-radius: 15px;
     background: #12171C;
     width: 500px;
 }
-.modal .modal-footer {
+.modal .modal-footer, .modal2 .modal-footer {
     background: #12171C;
 
 }
@@ -148,10 +154,10 @@ nav .input-field input {
 
 
 .card {
+
     color: #12171C;
-    width: 300px;
-    height: 500px;
-    /*background: #12171C;*/
+
+    background: #12171C;
 }
 .card-action {
     height: 60px;
@@ -177,9 +183,11 @@ nav .input-field input {
 /* ombre pour la materialbox */
 .card-panel:hover {
     -webkit-box-shadow: 1px 3px 3px 1px #ff7f11, 1px 4px 2px -1px #ff7f11, 1px 2px 6px 1px #ff7f11;
-      box-shadow: 1 3px 3px 1px #ff7f11, 1px 4px 2px -1px #ff7f11, 1px 2px 6px 1px #ff7f11;
+    box-shadow: 1 3px 3px 1px #ff7f11, 1px 4px 2px -1px #ff7f11, 1px 2px 6px 1px #ff7f11;
 }
-
+.divider {
+    background: #d13400;
+}
 /**
 * stylisation du datepicker 
 */
@@ -188,30 +196,30 @@ nav .input-field input {
 .picker__day--selected,
 .picker__day--selected:hover,
 .picker--focused .picker__day--selected {
-  border-radius: 50%;
-  -webkit-transform: scale(0.75);
-          transform: scale(0.75);
-  background: #d13400;
-  color: #ffffff;
+    border-radius: 50%;
+    -webkit-transform: scale(0.75);
+    transform: scale(0.75);
+    background: #d13400;
+    color: #ffffff;
 }
 /* encart de gauche */
 .picker__date-display {
-  text-align: left;
-  background-color: #12171C;
-  color: #fff;
-  padding: 18px;
-  font-weight: 300;
+    text-align: left;
+    background-color: #12171C;
+    color: #fff;
+    padding: 18px;
+    font-weight: 300;
 }
 /* bouton et footer datepicker */
 .picker__footer {
-  text-align: right;
-  padding: 5px 10px;
+    text-align: right;
+    padding: 5px 10px;
 }
 .picker__close, .picker__today, .picker__clear {
-  font-size: 1.1rem;
-  padding: 0 1rem;
-  color: #12171C;
-  background: none;
+    font-size: 1.1rem;
+    padding: 0 1rem;
+    color: #12171C;
+    background: none;
 }
 .picker__today {
     margin-right: 40px;
@@ -221,7 +229,7 @@ nav .input-field input {
     color: #d13400;
 }
 .picker__day.picker__day--today {
-  color: #ff7f11;
+    color: #ff7f11;
 }
 /**
 * stylisation du formulaire
@@ -235,8 +243,8 @@ nav .input-field input {
 .select-dropdown li.disabled,
 .select-dropdown li.disabled > span,
 .select-dropdown li.optgroup {
-  color: #9E9E9E;
-  background-color: transparent;
+    color: #9E9E9E;
+    background-color: transparent;
 }
 /**
 * pour mobile
