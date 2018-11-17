@@ -10,6 +10,7 @@
  include_once 'class/database.php';
  include_once 'models/u01cc_users.php';
  include_once 'models/u01cc_contribs.php';
+ include_once 'models/u01cc_raidSteps.php';
  
  
 

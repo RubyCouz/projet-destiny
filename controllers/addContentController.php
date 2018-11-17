@@ -6,23 +6,24 @@
  //déclaration des regex vérifiant le formulaire d'ajout de contenu
  $categoriesPattern = '/^(1)|(2)|(3)|(4)|(5)|(6)|(7)$/';
  $textPattern = '/^[a-zA-Zéùîâêäëïüöû\'\s\-\/\;\,\:\!\?\.€$=\(\)%\d]+$/';
- $contentPattern = '/^[a-zA-Zéùîâêäëïüöû\\\'\s\-\/\;\,\:\!\?\.€$=\(\)%\d]*|(\<\/p\>)*|(\<p\>)*|(\<img \>)*'
+ $contentPattern = '/^[a-zA-Zéùîâêäëïüöû&\\\'\s\-\/\;\,\:\!\?\.\"€$=\(\)%\d*|(\<\/p\>)*|(\<p\>)*|(\<img \>)*'
          . '|(\<strong>)*|(\<\/strong\>)*|(\<em\>)*|(\<\/em\>)*|(\<sub\>)*|(\<\/sub\>)*|(\<sup\>)*'
          . '|(\<\/sup\>)*|(\<span\>)*|(\<\/span\>)*|(\<pre\>)*|(\<\/pre\>)*|(\<h1\>)*'
          . '|(\<\/h1\>)*|(\<h2\>)*|(\<\/h2\>)|(\<h3\>)*|(\<\/h3\>)*|(\<h4\>)*|(\<\/h4\>)*|(\<h5\>)*|(\<\/h5\>)*'
-         . '|(\<h6\>)*|(\<\/h6\>)*$/';
+         . '|(\<h6\>)*|(\<\/h6\>)]*$/';
 
  //condition vérifant les données saises dans le formulaire
- if (isset($_POST['submit']))
+ if (isset($_POST['submit']) || isset($_POST['next']))
  {
 
      //accès à l'instance de la classe
-     $addUser = database::getInstance();
+     //    $addUser = database::getInstance();
      //instanciation de l'objet 
      $addContent = new u01cc_contribs();
-     $this->d_u01cc_users = $_GET['id'];
-
-     //verification de la saisie pour le titre et l'étape si nécessaire
+     //récupération de l'id utilisateur passé dans l'url
+     $id = $_GET['id'];
+     $addContent->id_u01cc_users = $id;
+     //verification de la saisie  des input
      if (!empty($_POST['title']))
      {
          if (preg_match($textPattern, $_POST['title']))
@@ -40,9 +41,9 @@
      }
      if (!empty($_POST['content']))
      {
-         if (preg_match($textPattern, $_POST['content']))
+         if (preg_match($contentPattern, $_POST['content']))
          {
-             $addContent->content = htmlspecialchars($_POST['content']);
+             $addContent->content = $_POST['content'];
          }
          else
          {
@@ -57,7 +58,7 @@
      {
          if (preg_match($categoriesPattern, $_POST['categories']))
          {
-             $addContent->categories = htmlspecialchars($_POST['categories']);
+             $addContent->id_u01cc_categoriesContribs = htmlspecialchars($_POST['categories']);
          }
          else
          {
@@ -66,10 +67,11 @@
      }
      else
      {
-         if (!$addContent->addContent()) {
-     $formError['submit'] = ERROR_SUBMIT;
- }$formError['categories'] = ERROR_MISS_CATEGORIES;
-     } 
+         $formError['categories'] = ERROR_MISS_CATEGORIES;
+     }
+     $addContent->dateHour = date('Y-m-d');
+
+
 //     $database = database::getInstance();
 //     $database->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 //     try {
@@ -87,9 +89,14 @@
          if (!$addContent->addContent())
          {
              //message d'erreur en cas de problème avec la table ou la bdd
-             $formError['submit'] = ERROR_SUBMIT;
+             $formError['submit'] = ERROR_SUBMIT_CONTENT;
+         }
+         else
+         {
+             $database = database::getInstance();
+             $lastInsertId = $database->pdo->lastInsertId();
+             header('location: nextAddContent.php?contrib=' . $lastInsertId);
          }
      }
  }
- 
 ?>

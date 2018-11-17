@@ -56,11 +56,33 @@
          }
          return $state;
      }
-
 /**
+ * méthode vérifiant si les cookies sont valides
+ * @return type boolean
+ */
+     public function verifyCookie()
+     {
+         $state = false;
+         $query = 'SELECT ('
+                 . 'SELECT COUNT(`id`) AS `countId` FROM `u01cc_users` WHERE `id` = :id '
+                 . 'SELECT COUNT(`gamerTag`) AS `countgt` FROM `u01cc_users` WHERE `gamerTag` = :gamerTag '
+                 . 'SELECT COUNT(`password`) AS `countpassword` FROM `u01cc_users` WHERE `password` = :password '
+                 . ')';
+         $result = $this->pdo->prepare($query);
+         $result->bindValue(':id', $this->id, PDO::PARAM_STR);
+         $result->bindValue(':password', $this->password, PDO::PARAM_STR);
+         $result->bindValue(':gamerTag', $this->gamerTag, PDO::PARAM_STR);
+         if ($result->execute)
+         {
+             $selectResult = $result->fetch(PDO::FETCH_OBJ);
+             $state = $selectResult->count;
+         }
+         return $state;
+     }
+
+     /**
       * Méthode permettant la connexion d'un utilisateur
       */
-
      public function userConnection()
      {
          $state = false;
@@ -84,9 +106,32 @@
          return $state;
      }
 
+     public function cookiesConnection()
+     {
+         $state = false;
+         $query = 'SELECT `id`, `gamerTag`, `password` '
+                 . 'FROM `u01cc_users` '
+                 . 'WHERE `gamerTag` = :gamerTag';
+         $result = $this->pdo->prepare($query);
+         $result->bindValue(':gamerTag', $this->gamerTag, PDO::PARAM_STR);
+         if ($result->execute())
+         { // on verifie la bonne exécution de la requete
+             $selectResult = $result->fetch(PDO::FETCH_OBJ);
+             // on vérifie qu'un utilisateur a bien été trouvé
+             if (is_object($selectResult))
+             {
+                 // on hydrate
+                 $this->gamerTag = $selectResult->gamerTag;
+                 $this->password = $selectResult->password;
+                 $this->id = $selectResult->id;
+                 $state = true;
+             }
+         }
+     }
+
      public function __destruct()
      {
-         ;
+         
      }
 
  }

@@ -21,7 +21,6 @@ $(document).ready(function () {
     $('.parallax').parallax(); // active l'effet parallax
     $('.weaponPic').materialbox(); // agrandissement de l'image au clic dessus
     $('.goodiesPicMin').materialbox(); // agrandissement de l'image au clic dessus
-
     // control des tabs
     $('ul.tabs').tabs();
     //controle du date picker
@@ -71,27 +70,15 @@ $(document).ready(function () {
             ],
             //enlève le "powered by..."
             branding: false,
+
+            //gestion du plugin uploader filemanager
             external_filemanager_path: '/filemanager/',
             filemanager_title: 'Responsive Filemanager',
             external_plugins: {'filemanager': '/filemanager/plugin.min.js'}
-            // file_browser_callback: 'fileBrowser'
         });
     }
     applyMCE();
-    function fileBrowser(field_name, url, type, win) {
-        tinyMCE.activeEditor.windowManager.open({
-            file: 'http://google.com',
-            title: 'Gallerie',
-            width: 420,
-            height: 400,
-            resizable: 'yes',
-            close_previous: 'no',
-        }, {
-            window: win,
-            input: field_name,
-        });
-        return false;
-    }
+
 
 
 // gestion des boutons du formulaire d'ajout de contenu   
@@ -109,4 +96,51 @@ $(document).ready(function () {
         }
     }
     );
+
+    $('.inProgress').modal({
+        dismissible: true, // la modal peut disparaître en cliquant à côté
+        opacity: .5, // opacité de l'arrière plan
+        inDuration: 300, // temps pour l'afficher
+        outDuration: 200, // temps pour l'enlever
+        startingTop: '4%',
+        endingTop: '10%',
+        ready: function (modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+            //récupération de l'id de l'élément affiché et envoie sur l'élément de confirmation pour validation en base de donnée 
+            //pas de soluce internet pour materialize
+            $('#acceptButton').attr('data-id', trigger.attr('data-id'));
+            $('#deleteButton').attr('data-id', trigger.attr('data-id'));
+            $('.stepContent').attr('class', trigger.attr('data-id'));
+            $('.stepContent').attr('class', trigger.attr('data-id'));
+        },
+        complete: function () {
+        } // Callback for Modal close
+    }
+    );
+    //au click sur le bouton
+    $('#acceptButton').click(function () {
+        // on stock la valeur de data-id dans la variable id
+        var id = $(this).attr('data-id');
+        //appel ajax pour envoye le data-id vers le controlleur
+        $.post('../controllers/moderationController.php', {
+            id: id, // definion et envoie l'id dans le controlleur
+            valid: $(this).val() // definition et envoie du nom du bouton 
+        }, function (data) { //execution de la fonction correspondante dans le controlleur
+            if (data == true) { // si la fonction return retourne true
+                $('#' + id).hide();
+                $('.' + id).hide();
+            }
+        }, 'JSON');
+    });
+    $('#deleteButton').click(function () {
+        var id = $(this).attr('data-id');
+        $.post('../controllers/moderationController.php', {
+            id: id,
+            invalid: $(this).val()
+        }, function (data) {
+            if (data == true) {
+                $('#' + id).hide();
+                $('.' + id).hide();
+            }
+        }, 'JSON');
+    });
 });

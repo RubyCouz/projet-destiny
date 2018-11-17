@@ -1,10 +1,19 @@
 <?php
- include 'header.php';
+  include_once '../configuration.php';
  include '../controllers/addContentController.php';
-?>
-<!-- script permettant l'implantation et le fonctionnement du wysiwyg -->
+ include 'header.php';
 
-<!-- formulaire d'ajout de contenu sur le site -->
+// formulaire d'ajout de contenu sur le site 
+if (isset($_POST['submit']) && count($formError) == 0) {
+    ?>
+<div class="row center-align valign-wrapper">
+    <div class="col s12 m12 l12">
+        <h1><?= ADD_CONTENT_SUCCESS ?></h1>
+    </div>
+</div>
+<?php
+} else {
+   ?>
 <div class="container">
     <div class="row center-align">
         <div class="col s12 m12 l12">
@@ -13,7 +22,7 @@
         </div>
     </div>
     <div class="row">
-        <form class="col s12 m12 l12" action="<?= isset($_POST['next']) ? 'nextAddContent.php' : '#' ?>" method="POST">
+        <form class="col s12 m12 l12" action="<?= isset($_POST['next']) ? 'nextAddContent.php' : $_SERVER['PHP_SELF'] . '?id=' . $_SESSION['id'] ?>" method="POST">
             <div class="row">
                 <div class="col s12 m12 l12 input-field">
                     <select name="categories" id="categories">
@@ -50,7 +59,7 @@
             </div>
             <div class="row">
                 <div class="col s12 m12 l12 center-align hide" id="send">
-                    <button type="submit" id="submit" class="waves-effect waves-red btn-flat" value="Valider" name="submit">Valider</button>
+                    <button type="submit" id="submit" class="waves-effect waves-red btn-flat" name="submit"><?= ADD_VALID ?></button>
                 </div>    
             </div>
         </form>
@@ -58,5 +67,6 @@
 </div>
 
 <?php
+}
  include_once 'footer.php';
 ?>
