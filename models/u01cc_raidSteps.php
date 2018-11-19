@@ -58,5 +58,28 @@
          $deleteNextContent->bindValue(':id', $this->id, PDO::PARAM_STR);
          return $deleteNextContent->execute();
      }
+     public function getStepById() {
+        $query = 'SELECT `raidStep`, `contentStep`, `id_u01cc_contribs` '
+                 . 'FROM `u01cc_raidSteps` '
+                 . 'WHERE `id` = :id';
+         $getStepById = $this->pdo->prepare($query);
+         $getStepById->bindValue(':id', $this->id, PDO::PARAM_INT);
+         $getStepById->execute();
+         if (is_object($getStepById))
+         {
+             $isObjectResult = $getStepById->fetch(PDO::FETCH_OBJ);
+         }
+         return $isObjectResult;
+     }
+     public function updateStepContent() {
+         $query = 'UPDATE `u01cc_raidSteps` '
+                 . 'SET `raidStep` = :raidStep , `contentStep` = :contentStep '
+                 . 'WHERE `id` = :id';
+         $updateIntroContribs = $this->pdo->prepare($query);
+         $updateIntroContribs->bindValue(':raidStep', $this->raidStep, PDO::PARAM_STR);
+         $updateIntroContribs->bindValue(':contentStep', $this->contentStep, PDO::PARAM_STR);
+         $updateIntroContribs->bindValue(':id', $this->id, PDO::PARAM_STR);
+         return $updateIntroContribs->execute();
+     }
  }
  

@@ -5,7 +5,7 @@
      include_once '../configuration.php';
 
      $confirmContent = new u01cc_contribs();
-     $confirmlContent->id = htmlspecialchars($_POST['id']);
+     $confirmContent->id = htmlspecialchars($_POST['id']);
      $confirmContentResult = $confirmContent->confirmContent();
 
      echo true;

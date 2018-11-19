@@ -5,7 +5,9 @@ body, .page-footer {
     background: #12171C;
     color: white;
 }
-
+.raidSelect {
+    padding-top: 50px;
+}
 nav {
     background: #12171C;
 }
@@ -44,9 +46,7 @@ nav .input-field input {
 .tabs .indicator {
     background-color: #d13400;
     height: 3px;
-
 }
-
 .tabs .tab a:hover,
 .tabs .tab a.active {
     background: #12171C;   
@@ -60,28 +60,39 @@ nav .input-field input {
 }
 .tabs {
     position: fixed;
+  background: #12171C;
 }
 /*gestion du menu utilisateur */
 .fixed-action-btn {
     position: fixed; 
     right: 23px;
-    top: 60px;
+    bottom: 23px;
     padding-top: 15px;
     margin-bottom: 0;
     z-index: 997;
     color: #ff7f11;
 }
 .fixed-action-btn .fab-backdrop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 40px;
-  height: 40px;
-  background-color: #26a69a;
-  border-radius: 50%;
-  -webkit-transform: scale(0);
-          transform: scale(0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 40px;
+    height: 40px;
+    background-color: #ff7f11;
+    border-radius: 50%;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+.btn-floating {
+    background-color: #ff7f11;
+    color: #12171C;
+}
+.btn-floating i {
+    color: #12171C;
+}
+.btn-floating   :hover {
+    background: #d13400;
 }
 .btn-large {
     background: #ff7f11;
@@ -296,7 +307,26 @@ nav .input-field input {
 .tinymce-enabled-message {
     height: 600px;
 }
-
+.mce-floatpanel {
+    width: 600px !important;
+}
+.mce-checkbox {
+    left: 200px !important;
+}
+.mce-textbox.mce-abs-layout-item {
+    width: 60px !important;
+    left: 250px;
+}
+.mce-textbox.mce-abs-layout-item.mce-last {
+    width: 300px !important;
+    left: 180px !important;
+}
+.mce-widget.mce-label.mce-abs-layout-item.mce-first {
+    width: 150px !important;
+}
+.mce-content-body {
+    background: #FFF !important;
+}
 /**
 * pour mobile
 */
@@ -313,13 +343,13 @@ nav .input-field input {
         height: 400px;
     }
     .fixed-action-btn {
-    position: fixed; 
-    right: 10px;
-    top: 5px;
-    padding-top: 15px;
-    margin-bottom: 0;
-    z-index: 997;
-    color: #ff7f11;
-}
+        position: fixed; 
+        right: 10px;
+        top: 5px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 997;
+        color: #ff7f11;
+    }
 }
 

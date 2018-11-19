@@ -41,68 +41,76 @@
                         <li><a class="waves-effect waves-dark" href="<?= isset($_SESSION['isConnect']) ? 'forum.php?id=' . $_SESSION['id'] : 'forum.php' ?>">catégories</a></li>
                         <li><a class="waves-effect waves-dark" href="<?= isset($_SESSION['isConnect']) ? 'tchat.php?id=' . $_SESSION['id'] : 'tchat.php' ?>">Tchat</a></li>
                     </ul>
-                   
 
-                    <div class="nav-wrapper">
-                        <a href="home.php" class="brand-logo"><img src="../assets/img/logo.png" title="Logo Destiny" alt="Représentation du logo Destiny"/></a>
-                        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                        <ul id="nav-mobile" class="right hide-on-med-and-down">
-                            <li>
-                                <form>
-                                    <div class="input-field">
-                                        <input id="search" type="search" required />
-                                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                                        <i class="material-icons">close</i>
-                                    </div>
-                                </form>
-                            </li>
-                            <li><a class="dropdown-button" href="#!" data-activates="dropdownLore">Lore de Destiny<i class="material-icons right">arrow_drop_down</i></a></li>
-                            <li><a class="dropdown-button" href="#!" data-activates="dropdownTips">Tuto et asctuces<i class="material-icons right">arrow_drop_down</i></a></li>
-                            <li><a class="dropdown-button" href="#!" data-activates="dropdownContrib">Contributions<i class="material-icons right">arrow_drop_down</i></a></li>
-                            <li><a class="dropdown-button" href="#!" data-activates="dropdownForum">Forum<i class="material-icons right">arrow_drop_down</i></a></li>
-                           
-                            <li>                      
-                                <?php
-                                 if (!isset($_SESSION['isConnect']))
-                                 {
-                                     ?>
-                                     <a class="waves-effect waves-dark btn modal-trigger" href="#login"><?= NAV_CONECT ?></a>
-                                     <?php
-                                 }
-                                 else
-                                 {
-                                     ?>
-                                     <span class="hello"><?= sprintf(NAV_WELCOME, $_SESSION['gamerTag']) ?></span>
-                                 </li>
-                                 <li><a class="waves-effect waves-dark btn modal-trigger" href="<?= $_SERVER['PHP_SELF'] ?>?action=disconnect"><?= NAV_DISCONECT ?></a></li>
+
+                    <a href="home.php" class="brand-logo"><img src="../assets/img/logo.png" title="Logo Destiny" alt="Représentation du logo Destiny"/></a>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li>
+                            <form>
+                                <div class="input-field">
+                                    <input id="search" type="search" required />
+                                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                                    <i class="material-icons">close</i>
+                                </div>
+                            </form>
+                        </li>
+                        <li><a class="dropdown-button" href="#!" data-activates="dropdownLore">Lore de Destiny<i class="material-icons right">arrow_drop_down</i></a></li>
+                        <li><a class="dropdown-button" href="#!" data-activates="dropdownTips">Tuto et asctuces<i class="material-icons right">arrow_drop_down</i></a></li>
+                        <li><a class="dropdown-button" href="#!" data-activates="dropdownContrib">Contributions<i class="material-icons right">arrow_drop_down</i></a></li>
+                        <li><a class="dropdown-button" href="#!" data-activates="dropdownForum">Forum<i class="material-icons right">arrow_drop_down</i></a></li>
+
+                        <li>                      
+                            <?php
+                             if (!isset($_SESSION['isConnect']))
+                             {
+                                 ?>
+                                 <a class="waves-effect waves-dark btn modal-trigger" href="#login"><?= NAV_CONECT ?></a>
                                  <?php
                              }
-                            ?>
-                          <?php
-                     if (isset($_SESSION['isConnect']))
-                     {
-                         ?>
-                        <!-- menu interaction utilisateur --> 
-                         <div class="fixed-action-btn toolbar">
-                             <a class="btn-floating btn-large">
-                                 <i class="large material-icons">menu</i>
-                             </a>
-                             <ul>
-                                 <li class="waves-effect waves-dark"><a href="<?= isset($_SESSION['isConnect']) ? 'profil.php?id=' . $_SESSION['id'] : 'profil.php' ?>" title="Profil"><i class="material-icons">person</i></a></li>
-                                 <li class="waves-effect waves-dark"><a href="<?= isset($_SESSION['isConnect']) ? 'farm.php?id=' . $_SESSION['id'] : 'farm.php' ?>" title="Historique"><i class="material-icons">assignment</i></a></li>
-                                 <li class="waves-effect waves-dark"><a href="<?= isset($_SESSION['isConnect']) ? 'addContent.php?id=' . $_SESSION['id'] : 'histoire.php' ?>" title="Ajouter un contenu"><i class="material-icons">publish</i></a></li>
-                                 <li class="waves-effect waves-dark"><a href="<?= isset($_SESSION['isConnect']) ? 'nextAddContent.php?id=' . $_SESSION['id'] : 'nextAddContent.php' ?>" title="Poursuivre l'ajout d'un tuto"><i class="material-icons">playlist_add</i></a></li>
-                                 <li class="waves-effect waves-dark"><a href="<?= isset($_SESSION['isConnect']) ? 'moderation.php?id=' . $_SESSION['id'] : 'moderation.php' ?>" title="Modération"><i class="material-icons">supervisor_account</i></a></li>
-                             </ul>
-                         </div>
-                         <?php
-                     }
-                    ?>
-                        </ul>
-                    </div>
+                             else
+                             {
+                                 ?>
+                                 <span class="hello"><?= sprintf(NAV_WELCOME, $_SESSION['gamerTag']) ?></span>
+                             </li>
+                             <li><a class="waves-effect waves-dark btn modal-trigger" href="<?= $_SERVER['PHP_SELF'] ?>?action=disconnect"><?= NAV_DISCONECT ?></a></li>
+                             <?php
+                         }
+                        ?>
+
+                    </ul>
+
                 </div>
+
             </nav>
+
         </div>
+        <?php
+         if (isset($_SESSION['isConnect']))
+         {
+             ?>
+             <!-- menu interaction utilisateur --> 
+             <div class="fixed-action-btn toolbar">
+                 <a class="btn-floating">
+                     <i class="material-icons large">menu</i>
+                 </a>
+                 <ul>
+                     <li class="waves-effect waves-dark"><a href="<?= isset($_SESSION['isConnect']) ? 'profil.php?id=' . $_SESSION['id'] : 'profil.php' ?>" title="Profil"><i class="material-icons">person</i></a></li>
+                     <li class="waves-effect waves-dark"><a href="<?= isset($_SESSION['isConnect']) ? 'farm.php?id=' . $_SESSION['id'] : 'farm.php' ?>" title="Historique"><i class="material-icons">assignment</i></a></li>
+                     <li class="waves-effect waves-dark"><a href="<?= isset($_SESSION['isConnect']) ? 'addContent.php?id=' . $_SESSION['id'] : 'histoire.php' ?>" title="Ajouter un contenu"><i class="material-icons">publish</i></a></li>
+                     <li class="waves-effect waves-dark"><a href="<?= isset($_SESSION['isConnect']) ? 'nextAddContent.php?id=' . $_SESSION['id'] : 'nextAddContent.php' ?>" title="Poursuivre l'ajout d'un tuto"><i class="material-icons">playlist_add</i></a></li>
+                     <li class="waves-effect waves-dark"><a href="<?= isset($_SESSION['isConnect']) ? 'moderation.php?id=' . $_SESSION['id'] : 'moderation.php' ?>" title="Modération"><i class="material-icons">supervisor_account</i></a></li>
+                 </ul>
+             </div>
+             <?php
+         }
+        ?>
+
+
+
+
+
         <!-- login modal -->
         <div id="login" class="modal modal-fixed-footer">
             <div class="modal-content">
@@ -146,3 +154,4 @@
                 </div>
             </div>
         </div>
+        <!--          -->

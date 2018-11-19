@@ -50,7 +50,6 @@ $(document).ready(function () {
             language: 'fr_FR',
             // mode de tinymce
             mode: 'specific_textareas',
-
             //selection du champs a passer en wysiwyg
             selector: '.tinymce-enabled-message',
             // theme
@@ -60,17 +59,20 @@ $(document).ready(function () {
                 plugins: ['autosave', 'lists', 'autolink']
             },
             // gestion des plugins
-            plugins: 'image, media, autolink, responsivefilemanager',
-
+            plugins: [
+                'image, media, autolink, responsivefilemanager',
+                " advlist anchor autolink colorpicker contextmenu fullscreen help image imagetools",
+                " lists link media noneditable preview",
+                " searchreplace table textcolor visualblocks wordcount"
+            ],
             //gestion du menu
             menubar: 'file edit insert view format fontsizeselect table tools help',
             //gestion de la barre d'outils
             toolbar: [
-                'undo redo | styleselect | bold italic | link image media | alignleft aligncenter alignright'
+                'undo redo | styleselect | bold italic | link image media | alignleft aligncenter alignright alignjustify | bullist numlist | forecolor backcolor',
             ],
             //enlève le "powered by..."
             branding: false,
-
             //gestion du plugin uploader filemanager
             external_filemanager_path: '/filemanager/',
             filemanager_title: 'Responsive Filemanager',
@@ -78,9 +80,6 @@ $(document).ready(function () {
         });
     }
     applyMCE();
-
-
-
 // gestion des boutons du formulaire d'ajout de contenu   
     $('#categories').change(function () {
 // selon le choix de l'utilisateur
@@ -96,7 +95,6 @@ $(document).ready(function () {
         }
     }
     );
-
     $('.inProgress').modal({
         dismissible: true, // la modal peut disparaître en cliquant à côté
         opacity: .5, // opacité de l'arrière plan
@@ -110,7 +108,6 @@ $(document).ready(function () {
             $('#acceptButton').attr('data-id', trigger.attr('data-id'));
             $('#deleteButton').attr('data-id', trigger.attr('data-id'));
             $('.stepContent').attr('class', trigger.attr('data-id'));
-            $('.stepContent').attr('class', trigger.attr('data-id'));
         },
         complete: function () {
         } // Callback for Modal close
@@ -118,7 +115,7 @@ $(document).ready(function () {
     );
     //au click sur le bouton
     $('#acceptButton').click(function () {
-        // on stock la valeur de data-id dans la variable id
+// on stock la valeur de data-id dans la variable id
         var id = $(this).attr('data-id');
         //appel ajax pour envoye le data-id vers le controlleur
         $.post('../controllers/moderationController.php', {
@@ -126,8 +123,8 @@ $(document).ready(function () {
             valid: $(this).val() // definition et envoie du nom du bouton 
         }, function (data) { //execution de la fonction correspondante dans le controlleur
             if (data == true) { // si la fonction return retourne true
-                $('#' + id).hide();
-                $('.' + id).hide();
+                $('#' + id).hide(); // on cache la catégorie validé 
+                $('.' + id).hide(); // on cache l'étape validé
             }
         }, 'JSON');
     });
