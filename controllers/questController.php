@@ -1,4 +1,4 @@
-<?php
+    <?php
 
  if (isset($_POST['confirmDelIntro']))
  {
@@ -6,9 +6,7 @@
      $deleteContent = new u01cc_contribs();
      $deleteContent->id = htmlspecialchars($_POST['introID']);
      $deleteContentResult = $deleteContent->deleteContent();
-     echo true;
-          header('location: ../views/raid.php');
-
+     header('location: ../views/quest.php');
  }
  elseif (isset($_POST['confirmDelStep']))
  {
@@ -16,23 +14,21 @@
      $deleteStepContent = new u01cc_raidSteps();
      $deleteStepContent->id = htmlspecialchars($_POST['stepId']);
      $deleteStepContentResult = $deleteStepContent->deleteStepContent();
-     echo true;
-          header('location: ../views/raid.php');
-
+     header('location: ../views/quest.php');
  }
  else
  {
-      if (isset($_POST['summary']))
-     {
+     if (isset($_POST['summary']))
+     {//obligation de rappeler le fichier configuration du à la focntion jquery permettant l'affichage
          include_once '../configuration.php';
 
-         $getRaid = new u01cc_raidSteps();
-         $getRaid->id_u01cc_contribs = $_POST['summary'];
-         $getRaidResult = $getRaid->getRaid();
+         $getQuest = new u01cc_raidSteps();
+         $getQuest->id_u01cc_contribs = $_POST['summary'];
+         $getQuestResult = $getQuest->getQuest();
      }
      include_once '../configuration.php';
 
-     $getTitleRaid = new u01cc_contribs();
-     $getTitleRaidResult = $getTitleRaid->getTitleRaid();
+     $getTitleQuest = new u01cc_contribs();
+     $getTitleQuestResult = $getTitleQuest->getTitleQuest();
  }
 ?>

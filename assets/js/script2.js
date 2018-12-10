@@ -1,10 +1,25 @@
 $(document).ready(function () {
-    $('.dropdown-button').dropdown(// menu drop down
+    //menu burger mobil
+    $('.button-collapse').sideNav();
+    // menu drop down
+    $('.dropdown-button').dropdown(
             {
                 inDuration: 300,
                 outDuration: 225,
                 constrainWidth: true, //true => adapte le dropdown à la taille des onglets, false => adpate à la taille des liens à l'intérieur
                 hover: true, // S'active au survol, false => clic pour s'activer
+                gutter: 0, // Spacing from edge
+                belowOrigin: true, // deffilement du dropdown sous l'onglet, false => defilment sur l'onglet
+                alignment: 'left', // alignement sur la gauche des liens dans le dropdown
+                stopPropagation: false // Stops event propagation
+            });
+    //dropdown mobil
+    $('.dropdown-button-mobil').dropdown(// menu drop down
+            {
+                inDuration: 300,
+                outDuration: 225,
+                constrainWidth: true, //true => adapte le dropdown à la taille des onglets, false => adpate à la taille des liens à l'intérieur
+                hover: false, // S'active au survol, false => clic pour s'activer
                 gutter: 0, // Spacing from edge
                 belowOrigin: true, // deffilement du dropdown sous l'onglet, false => defilment sur l'onglet
                 alignment: 'left', // alignement sur la gauche des liens dans le dropdown
@@ -17,7 +32,7 @@ $(document).ready(function () {
         $('html, body').animate({scrollTop: $(page).offset().top}, speed); // Go
         return false;
     });
-    $('.modal').modal(); // déclenchement de la modal
+
     $('.parallax').parallax(); // active l'effet parallax
     $('.weaponPic').materialbox(); // agrandissement de l'image au clic dessus
     $('.goodiesPicMin').materialbox(); // agrandissement de l'image au clic dessus
@@ -69,7 +84,7 @@ $(document).ready(function () {
             menubar: 'file edit insert view format fontsizeselect table tools help',
             //gestion de la barre d'outils
             toolbar: [
-                'undo redo | styleselect | bold italic | link image media | alignleft aligncenter alignright alignjustify | bullist numlist | forecolor backcolor',
+                'undo redo | styleselect | bold italic | link image media | alignleft aligncenter alignright alignjustify | bullist numlist'
             ],
             //enlève le "powered by..."
             branding: false,
@@ -95,24 +110,23 @@ $(document).ready(function () {
         }
     }
     );
-    $('.inProgress').modal({
-        dismissible: true, // la modal peut disparaître en cliquant à côté
-        opacity: .5, // opacité de l'arrière plan
-        inDuration: 300, // temps pour l'afficher
-        outDuration: 200, // temps pour l'enlever
-        startingTop: '4%',
-        endingTop: '10%',
+    // récupération de la valeur de la liste déroulante permettant la sélection d'une quête  
+    $('#summary').change(function () {
+        $('#select').submit();
+    });
+    // déclenchement de la modal
+    $('.modal').modal({
         ready: function (modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
             //récupération de l'id de l'élément affiché et envoie sur l'élément de confirmation pour validation en base de donnée 
             //pas de soluce internet pour materialize
             $('#acceptButton').attr('data-id', trigger.attr('data-id'));
             $('#deleteButton').attr('data-id', trigger.attr('data-id'));
             $('.stepContent').attr('class', trigger.attr('data-id'));
-        },
-        complete: function () {
-        } // Callback for Modal close
-    }
-    );
+            $('#deleteIntroButton').attr('data-id', trigger.attr('data-id'));
+            $('#deleteStepButton').attr('data-id', trigger.attr('data-id'));
+        }
+    });
+    //gestion de la validation ou de la suppressiond de contenu lors de la modération
     //au click sur le bouton
     $('#acceptButton').click(function () {
 // on stock la valeur de data-id dans la variable id
@@ -126,7 +140,8 @@ $(document).ready(function () {
                 $('#' + id).hide(); // on cache la catégorie validé 
                 $('.' + id).hide(); // on cache l'étape validé
             }
-        }, 'JSON');
+        },
+                'JSON');
     });
     $('#deleteButton').click(function () {
         var id = $(this).attr('data-id');
@@ -138,6 +153,58 @@ $(document).ready(function () {
                 $('#' + id).hide();
                 $('.' + id).hide();
             }
-        }, 'JSON');
+        },
+                'JSON');
     });
+
+
+    $('#email').blur(function () {
+        $.post('../controllers/subscribeController.php', {emailVerify: $(this).val()}, function (data) {
+            if (data == 1) {
+                $('#emailError').removeClass('hide');
+                $('#register').hide();
+            } else {
+                $('#emailError').addClass('hide')
+                $('#register').show();
+            }
+        },
+                'JSON');
+    });
+    $('#gamertag').blur(function () {
+        $.post('../controllers/subscribeController.php', {gtVerify: $(this).val()}, function (data) {
+            if (data == 1) {
+                $('#gtError').removeClass('hide');
+                $('#register').hide();
+            } else {
+                $('#gtError').addClass('hide')
+                $('#register').show();
+            }
+        },
+                'JSON');
+    });
+    //modification ou suppression de contenu après sa validation et son affichage
+//    $('#deleteIntroButton').click(function () {
+//        var id = $(this).attr('data-id');
+//        console.log(id);
+//        $.post('../controllers/questFinalController.php', {
+//            id: id,
+//            deleteIntro: $(this).val()
+//        }, function (data) {
+//            if (data == true) {
+//            }
+//        }, 'JSON');
+//    });
+//    $('#deleteStepButton').click(function (e) {
+//        e.preventDefault();
+//        console.log('ok');
+//        var id = $(this).attr('data-id');
+//        console.log(id);
+//        $.post('../controllers/questFinalController.php', {
+//            id: id,
+//            deleteStep: $(this).val()
+//        }, function (data) {
+//            if (data == true) {
+//            }
+//        }, 'JSON');
+//    });
 });

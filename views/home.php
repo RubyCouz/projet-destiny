@@ -3,13 +3,12 @@
 ?>
 <div id="home" class="js-scrollTo">
     <div class="row">
-        <ul class="tabs">
-            <li class="tab col s6"><a href="#destiny">Destiny</a></li>
-            <li class="tab col s6"><a href="#destiny2">Destiny 2</a></li>
+        <ul class="tabs tabs-fixed-width">
+            <li class="tab col s12"><a href="#destiny">Destiny</a></li>
+            <li class="tab col s12"><a href="#destiny2">Destiny 2</a></li>
         </ul>
     </div>
-
-    <div id="destiny" class="col s12 m12 l12">
+    <div id="destiny" class="container-fluid col s12 m12 l12">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="parallax-container">
@@ -19,9 +18,9 @@
                 </div>            
             </div>
         </div>
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12 l12">
                     <p>
                         Sorti le 9 Septembre  2014 en tant qu'exclusivité Sony sur Playstation 3, Playstation 4, XBOX360 et XBOX ONE Destiny est un jeu de type <strong>F.P.S</strong> (First Personn Shooter) avec une mécanique de <strong>M.M.O.R.P.G</strong> (Massive Multiplayer Online Role Playing Game). Vous êtes donc directement
                         dans la peau de votre personnage et avez la possibilité de jouer en ligne (c'est même plutôt recommander pour profiter pleinement du jeu et progresser correctement). Vous avez 
@@ -62,26 +61,27 @@
                     </p>
                 </div>
             </div>
+        </div>
+        <!-- dlc1 les ténêbres souterraines -->
+        <div class="container-fluid">
             <div class="row right-align">
                 <div class="col s12 m12 l12">
                     <a href="#home" class="js-scrollTo"><i class="material-icons medium">arrow_upward</i></a> 
                 </div>
             </div>
-        </div>
-
-        <!-- dlc1 les ténêbres souterraines -->
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="parallax-container">
-                    <div class="parallax">
-                        <img src="../assets/img/thedarkbelow.jpg" title="Les Ténèbres Souterraines" alt="Image montrant 3 gardiens sur dans le gouffre des enfers, Cropta en fondu en arrière plan"/>
-                    </div>
-                </div> 
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div class="parallax-container">
+                        <div class="parallax">
+                            <img src="../assets/img/thedarkbelow.jpg" title="Les Ténèbres Souterraines" alt="Image montrant 3 gardiens sur dans le gouffre des enfers, Cropta en fondu en arrière plan"/>
+                        </div>
+                    </div> 
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12 l12">
                     <h2><strong>D.L.C 1 : Les Ténèbres souterraines</strong></h2>
                     <p>Sorti le 9 décembre 2014, ce premier D.L.C nous en apprend plus sur <strong>La Ruche</strong></p>
                     <p>
@@ -99,25 +99,28 @@
                     </p>
                 </div>
             </div>
+        </div>
+        <div class="container-fluid">
             <div class="row right-align">
                 <div class="col s12 m12 l12">
                     <a href="#home" class="js-scrollTo"><i class="material-icons medium">arrow_upward</i></a> 
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="parallax-container">
-                    <div class="parallax">
-                        <img src="../assets/img/housewolves.jpg" title="La Maison des Loups" alt="Représentation de la reine du Récif, Mara Sov et de son frère, Uldren Sov"/>
+            <!-- dlc2 la maison des loups -->
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div class="parallax-container">
+                        <div class="parallax">
+                            <img src="../assets/img/housewolves.jpg" title="La Maison des Loups" alt="Représentation de la reine du Récif, Mara Sov et de son frère, Uldren Sov"/>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- dlc2 la maison des loups -->
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="content">
+
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12 l12">
                     <h2><strong>D.L.C 2 : La Maison des Loups</strong></h2>
                     <p>
                         Le deuxième D.L.C de <strong>Destiny</strong> est commercialisé le 19 mai 2015. L'histoire est cette fois centré sur <strong>les déchus</strong>, ennemis les plus récurrents du jeu.
@@ -154,25 +157,27 @@
                     </p>
                 </div>
             </div>
+        </div>
+        <div class="container-fluid">
             <div class="row right-align">
                 <div class="col s12 m12 l12">
                     <a href="#home" class="js-scrollTo"><i class="material-icons medium">arrow_upward</i></a> 
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="parallax-container">
-                    <div class="parallax">
-                        <img src="../assets/img/thetakenking.jpg" title="Le Roi des Corrompus" alt="Représentation d'Oryx, le Roi des Corrompus" />
+            <!-- dlc 3 le roi des corrompu -->
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div class="parallax-container">
+                        <div class="parallax">
+                            <img src="../assets/img/thetakenking.jpg" title="Le Roi des Corrompus" alt="Représentation d'Oryx, le Roi des Corrompus" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- dlc 3 le roi des corrompu -->
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12 l12">
                     <h2><strong>D.L.C. 3 : Le Roi des Corrompus</strong></h2>
                     <p>
                         La sortie de ce troisième D.L.C le 15 Septembre 2015 clos la première année de <strong>Destiny</strong> et marque un tournant dans le fonctionnement du jeu. Le niveau du joueur est 
@@ -215,26 +220,27 @@
                     </p>
                 </div>
             </div>
+        </div>
+        <div class="container-fluid">
             <div class="row right-align">
                 <div class="col s12 m12 l12">
                     <a href="#home" class="js-scrollTo"><i class="material-icons medium">arrow_upward</i></a> 
                 </div>
             </div>
-        </div>
-
-        <!-- dlc 4 les eigneurs de fer -->
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="parallax-container">
-                    <div class="parallax">
-                        <img src="../assets/img/lordsofiron.jpg" title="Les Seigneurs de Fer" alt="Image montrant le seigneur Saladin de dos, face à la brèche du mur de la Cité"/>
-                    </div>
-                </div>   
+            <!-- dlc 4 les eigneurs de fer -->
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div class="parallax-container">
+                        <div class="parallax">
+                            <img src="../assets/img/lordsofiron.jpg" title="Les Seigneurs de Fer" alt="Image montrant le seigneur Saladin de dos, face à la brèche du mur de la Cité"/>
+                        </div>
+                    </div>   
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12 l12">
                     <h2><strong>D.L.C 4 : Les Seigneurs de Fer</strong></h2>
                     <p>Ce quatrième et dernier D.L.C apporte son petit lot de nouveautés :</p>
                     <ul>
@@ -273,27 +279,30 @@
                 </div>
             </div>
         </div>
-        <div class="row right-align">
-            <div class="col s12 m12 l12">
-                <a href="#home" class="js-scrollTo"><i class="material-icons medium">arrow_upward</i></a> 
+        <div class="container-fluid">
+            <div class="row right-align">
+                <div class="col s12 m12 l12">
+                    <a href="#home" class="js-scrollTo"><i class="material-icons medium">arrow_upward</i></a> 
+                </div>
             </div>
         </div>
     </div>
-
     <!-- destiny 2 -->
     <div id="destiny2" class="col s12 m12 l12">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="parallax-container">
-                    <div class="parallax">
-                        <img src="../assets/img/Destiny2.jpg" title="Destiny 2" alt="Destiny 2" />
-                    </div>
-                </div>  
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div class="parallax-container">
+                        <div class="parallax">
+                            <img src="../assets/img/Destiny2.jpg" title="Destiny 2" alt="Destiny 2" />
+                        </div>
+                    </div>  
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12 l12">
                     <h2>Destiny 2</h2>
                     <p>
                         Successeur de <strong>Destiny</strong>, il sort le 6 Septembre 2017 sur Playstation 4 et Xbox One, et le 24 Octobre sur PC. Il reprend 
@@ -314,24 +323,26 @@
                 </div> 
             </div>
         </div>
-        <div class="row right-align">
-            <div class="col s12 m12 l12">
-                <a href="#home" class="js-scrollTo"><i class="material-icons medium">arrow_upward</i></a> 
+        <div class="container-fluid">
+            <div class="row right-align">
+                <div class="col s12 m12 l12">
+                    <a href="#home" class="js-scrollTo"><i class="material-icons medium">arrow_upward</i></a> 
+                </div>
             </div>
-        </div>
-        <!--dlc 1 la malédiction d'osiris -->
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="parallax-container">
-                    <div class="parallax">
-                        <img src="../assets/img/osiris.jpg" title="la Malédiction d'Osiris" alt="Image montrant Osiris et son spectre Sagira" />
+            <!--dlc 1 la malédiction d'osiris -->
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div class="parallax-container">
+                        <div class="parallax">
+                            <img src="../assets/img/osiris.jpg" title="la Malédiction d'Osiris" alt="Image montrant Osiris et son spectre Sagira" />
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12 l12">
                     <h2><strong>D.L.C 1 : La Malédiction d'Osiris</strong></h2>
                     <p>De nouveaux contenus avec l'arrivée de ce D.L.C :</p> 
                     <ul>
@@ -351,24 +362,26 @@
                 </div> 
             </div>
         </div>
-        <div class="row right-align">
-            <div class="col s12 m12 l12">
-                <a href="#home" class="js-scrollTo"><i class="material-icons medium">arrow_upward</i></a> 
+        <div class="container-fluid">
+            <div class="row right-align">
+                <div class="col s12 m12 l12">
+                    <a href="#home" class="js-scrollTo"><i class="material-icons medium">arrow_upward</i></a> 
+                </div>
+            </div>
+            <!-- dlc 2 l'esprit tu télaire -->
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div class="parallax-container">
+                        <div class="parallax">
+                            <img src="../assets/img/warmind.jpg" title="l'Esprit Tutélaire" alt="Anastasia Bray et son spectre" />
+                        </div>
+                    </div> 
+                </div>
             </div>
         </div>
-        <!-- dlc 2 l'esprit tu télaire -->
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="parallax-container">
-                    <div class="parallax">
-                        <img src="../assets/img/warmind.jpg" title="l'Esprit Tutélaire" alt="Anastasia Bray et son spectre" />
-                    </div>
-                </div> 
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12 l12">
                     <h2>D.L.C 2 : L'Esprit Tutélaire</h2>
                     <p>Sorti le 8 Mai 2018, il n'apporte que peu de contenu et de nouveauté :</p>
                     <ul>
@@ -389,24 +402,26 @@
                 </div>
             </div>
         </div>
-        <div class="row right-align">
-            <div class="col s12 m12 l12">
-                <a href="#home" class="js-scrollTo"><i class="material-icons medium">arrow_upward</i></a> 
+        <div class="container-fluid">
+            <div class="row right-align">
+                <div class="col s12 m12 l12">
+                    <a href="#home" class="js-scrollTo"><i class="material-icons medium">arrow_upward</i></a> 
+                </div>
+            </div>
+            <!-- dlc 3 renégat -->
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <div class="parallax-container">
+                        <div class="parallax">
+                            <img src="../assets/img/forsaken.jpg" title="Renégat" alt="Image montrant le Gardien portant le cadavre de Cayde-6" />
+                        </div>
+                    </div>  
+                </div>
             </div>
         </div>
-        <!-- dlc 3 renégat -->
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="parallax-container">
-                    <div class="parallax">
-                        <img src="../assets/img/forsaken.jpg" title="Renégat" alt="Image montrant le Gardien portant le cadavre de Cayde-6" />
-                    </div>
-                </div>  
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m12 l12">
                     <h2>D.L.C 3 : Renégat</h2>
                     <p>Disponible le 4 Septembre 2018 ,ce D.L.C promet de gros changement dans <strong>Destiny 2</strong>. On peut noter : </p>
                     <ul>
@@ -427,14 +442,16 @@
                 </div>
             </div>
         </div>
-        <div class="row right-align">
-            <div class="col s12 m12 l12">
-                <a href="#home" class="js-scrollTo"><i class="material-icons medium">arrow_upward</i></a> 
+        <div class="container-fluid">
+            <div class="row right-align">
+                <div class="col s12 m12 l12">
+                    <a href="#home" class="js-scrollTo"><i class="material-icons medium">arrow_upward</i></a> 
+                </div>
             </div>
-        </div>
-    </div>   
+        </div>   
+    </div>
 </div>
-<?php 
+<?php
  include_once 'footer.php';
 ?>
 

@@ -4,19 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/cedric/Documents/titrepro/views/updateStepContent.php</file>
-            <file>file:/home/cedric/Documents/titrepro/models/u01cc_raidSteps.php</file>
-            <file>file:/home/cedric/Documents/titrepro/views/nextAddContent.php</file>
-            <file>file:/home/cedric/Documents/titrepro/controllers/addContentController.php</file>
-            <file>file:/home/cedric/Documents/titrepro/controllers/updateIntroContentController.php</file>
             <file>file:/home/cedric/Documents/titrepro/views/raid.php</file>
-            <file>file:/home/cedric/Documents/titrepro/assets/js/script2.js</file>
+            <file>file:/home/cedric/Documents/titrepro/views/footer.php</file>
             <file>file:/home/cedric/Documents/titrepro/views/addContent.php</file>
-            <file>file:/home/cedric/Documents/titrepro/controllers/nextAddContentController.php</file>
-            <file>file:/home/cedric/Documents/titrepro/controllers/updateStepContentController.php</file>
-            <file>file:/home/cedric/Documents/titrepro/models/u01cc_contribs.php</file>
-            <file>file:/home/cedric/Documents/titrepro/views/moderation.php</file>
-            <file>file:/home/cedric/Documents/titrepro/class/database.php</file>
-            <file>file:/home/cedric/Documents/titrepro/views/raidbrouillon.php</file>
+            <file>file:/home/cedric/Documents/titrepro/assets/css/style.css</file>
+            <file>file:/home/cedric/Documents/titrepro/views/nextAddContent.php</file>
+            <file>file:/home/cedric/Documents/titrepro/index.php</file>
             <file>file:/home/cedric/Documents/titrepro/views/updateIntroContent.php</file>
         </group>
     </open-files>

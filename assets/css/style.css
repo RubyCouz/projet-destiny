@@ -5,6 +5,10 @@ body, .page-footer {
     background: #12171C;
     color: white;
 }
+.homePic {
+    width: 100% !important;
+    height: auto !important;
+}
 .raidSelect {
     padding-top: 50px;
 }
@@ -37,6 +41,9 @@ nav .input-field input {
 .dropdown-content li:hover {
     background-color: #33332d;
 }
+.dropdown-content li > span {
+    color: #ff7f11;
+}
 .hello {
     color: #ff7f11;
 }
@@ -60,7 +67,7 @@ nav .input-field input {
 }
 .tabs {
     position: fixed;
-  background: #12171C;
+    background: #12171C;
 }
 /*gestion du menu utilisateur */
 .fixed-action-btn {
@@ -91,7 +98,7 @@ nav .input-field input {
 .btn-floating i {
     color: #12171C;
 }
-.btn-floating   :hover {
+.btn-floating:hover {
     background: #d13400;
 }
 .btn-large {
@@ -109,6 +116,14 @@ nav .input-field input {
 }
 .large .material-icons {
     color: #12171C;
+}
+.menu {
+    padding-left: 100px;
+    padding-right: 100px;
+    background: #12171C;
+}
+small {
+    color: #ff7f11;
 }
 .center {
     margin-left: 250px;
@@ -177,11 +192,10 @@ nav .input-field input {
 }
 .modal .modal-footer, .modal2 .modal-footer {
     background: #12171C;
-
 }
 .modal-content {
     background: #12171C;
-    height: 100px;
+    height: 200px;
 }
 .modal-footer  {
     background: #12171C;
@@ -194,9 +208,7 @@ nav .input-field input {
 .btn, .btn-large, .btn-flat, .add {
     margin-left: -44px;
 }
-.addCart {
-    margin-left: -20px;
-}
+
 
 .validate {
     background: white;
@@ -206,16 +218,17 @@ nav .input-field input {
     background: #d13400;
 }
 /* css pour le checkbox sur modal de connection */
-
+[type="checkbox"]:checked + label::before {
+    border-right: 2px solid #d13400;
+    border-bottom: 2px solid #d13400;
+}
 
 .card {
-
     color: #12171C;
-
     background: #12171C;
 }
-.card-action {
-    height: 60px;
+.card-image img{
+    height: 200px;  
 }
 .description {
     color: #12171C;
@@ -234,11 +247,6 @@ nav .input-field input {
     background
     z-index: 1000;
     will-change: opacity;
-}
-/* ombre pour la materialbox */
-.card-panel:hover {
-    -webkit-box-shadow: 1px 3px 3px 1px #ff7f11, 1px 4px 2px -1px #ff7f11, 1px 2px 6px 1px #ff7f11;
-    box-shadow: 1 3px 3px 1px #ff7f11, 1px 4px 2px -1px #ff7f11, 1px 2px 6px 1px #ff7f11;
 }
 .divider {
     background: #d13400;
@@ -286,11 +294,11 @@ nav .input-field input {
 .picker__day.picker__day--today {
     color: #ff7f11;
 }
+
+
 /**
 * stylisation du formulaire
 */
-
-
 /**
 * modification de la liste déroulante 
 */
@@ -307,11 +315,11 @@ nav .input-field input {
 .tinymce-enabled-message {
     height: 600px;
 }
-.mce-floatpanel {
+/*.mce-floatpanel {
     width: 600px !important;
-}
+}*/
 .mce-checkbox {
-    left: 200px !important;
+    left: 140px !important;
 }
 .mce-textbox.mce-abs-layout-item {
     width: 60px !important;
@@ -327,6 +335,24 @@ nav .input-field input {
 .mce-content-body {
     background: #FFF !important;
 }
+.artwork {
+    color: #FFF !important;
+}
+.delProfil {
+    height: 300px;
+}
+/* css tableau users */
+table.highlight > tbody > tr:hover {
+    background-color: #3a3935;
+}
+
+img {
+    width: 100%;
+    height: auto;   
+}
+.mod {
+    margin-left: 0px;
+}
 /**
 * pour mobile
 */
@@ -335,21 +361,91 @@ nav .input-field input {
     body {
         padding-left: 0;
     }
+    img {
+        max-width: 100%;
+        height: auto;
+        align-content: space-around;
+    }
+    h1 {
+        font-size: 45px;
+    }
+    h2 {
+        font-size: 35px;
+    }
+    h4 {
+        font-size: 15px;
+    }
+    .tabs {
+        width: 100%;
+        margin-left: -10px;
+    }
+    .container {
+        margin-left: 10px;
+    }
     .parallax {
-        height: 400px;
+        height: 200px;
         background-image: fixed center no-repeat cover 100%;
     }
     .parallax-container{
-        height: 400px;
+        height: 200px;
     }
+    /*bouton navigation user*/
     .fixed-action-btn {
         position: fixed; 
         right: 10px;
-        top: 5px;
-        padding-top: 15px;
+        bottom: 5px;
+        padding-top: 5px;
         margin-bottom: 0;
         z-index: 997;
         color: #ff7f11;
+    }
+    .fixed-action-btn .fab-backdrop {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 40px;
+        height: 40px;
+        background-color: #ff7f11;
+        border-radius: 50%;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+    .menu {
+        padding-left: 0px;
+        padding-right: 20px;
+    }
+    .videoDestiny {
+        height: 200px;
+    }
+    .modal {
+        width: 100%;
+        height: auto;
+        line-height: 18px;
+    }
+    nav {
+        height: 65px;
+    }
+    .side-nav {
+        background: #12171C;
+    }
+    .side-nav li > a {
+        color: #ff7f11;
+    }
+    .side-nav li > a > i.material-icons {
+        color: #ff7f11;
+    }
+    .side-nav li > a.btn {
+        color: #12171C;
+    }
+    .side-nav li > a.btn:hover {
+        background: #d13400;
+    }
+    .brand-logo {
+        margin-left: 0px;
+    }
+    .hello {
+        padding-left: 100px;
     }
 }
 

@@ -2,7 +2,7 @@
  include 'header.php';
  include '../controllers/subscribeController.php';
 
- if (count($formError) == 0 && isset($_POST['submit'])) // condition modifiant l'affichage de la vue en foonction de la validité du formulaire
+ if (count($formError) == 0 && isset($_POST['submit'])) // condition modifiant l'affichage de la vue en fonction de la validité du formulaire
  //si le formulaire est valide
  {
      ?>
@@ -13,21 +13,19 @@
                      <div class="card-content white-text">
                          <div class="card-image">
                              <img src="../assets/img/accueil1.jpg">
-                             <span class="card-title">Félicitation Gardien(ne)</span>
+                             <span class="card-title"><?= SUB_CONGRAT ?></span>
                          </div>
                          <div class="center-align">
-                             <h2>Bienvenue sur Destiny Project!!</h2>
-                             <p>Votre inscription a bien été prise en compte.</p>
-                             <p>Vous avez désormais accès au forum, et pouvez partager du contenu avec les autres Gardiens.</p>
-                             <p>Bonne navigation!!</p>
-                             Ce site est encore en construction, certaines fonctionnalités ne sont pas encore disponible, veuillez nous en excuser. Toutefois si vous avez des suggestion quant à l'amélioration du site (navigation, organisation, 
-                             fonctionnalités, etc...) vous pouvez soummettre vos idées <a href="#">ici</a>.
-                             </p>
+                             <h2><?= SUB_TITLE ?></h2>
+                             <p><?= SUB_CONFIRM ?></p>
+                             <p><?= SUB_CONTENT1 ?></p>
+                             <p><?= SUB_CONTENT2 ?></p>
+                             <p><?= SUB_CONTENT3 ?></p>
                          </div>                        
                      </div>
                      <div class="row card-action center-align">
                          <div class="card-action">
-                             <a href="home.php" title="Naviguer sur le site">Retour à la navigation</a>
+                             <a href="home.php" title="<?= LINK_NAVIGATE ?>"><?= SUB_BACK ?></a>
                          </div>
                      </div>
                  </div>
@@ -67,23 +65,31 @@
                          <label for="email"><?= REGISTER_EMAIL ?> :</label>
                          <input type="email" id="email" name="email" value="<?= isset($_POST['submit']) ? $addUser->email : '' ?>" />
                          <small class="error"><?= isset($formError['email']) ? $formError['email'] : '' ?></small>                          
+                         <small id="emailError" class="error hide" ><?= ERROR_EXIST_EMAIL ?></small>                          
                      </div>
                  </div>
                  <div class="row">
                      <div class="col s12 m12 l6 input-field">
                          <select name="console" id="console">
                              <option value="" <?= isset($_POST['submit']) && isset($formError['console']) ? 'disabled selected' : 'disabled selected' ?>>Choissez votre plate-forme</option>
-                             <option value="1" <?= isset($_POST['submit']) && $_POST['console'] == 1 ? 'selected' : '' ?>>XBOX</option>
-                             <option value="2" <?= isset($_POST['submit']) && $_POST['console'] == 2 ? 'selected' : '' ?>>Playstation</option>
-                             <option value="3" <?= isset($_POST['submit']) && $_POST['console'] == 3 ? 'selected' : '' ?>>P.C</option>
+
+                             <?php
+                             foreach ($getConsolesResult as $consoles)
+                             {
+                                 ?>
+                                 <option value="<?= $consoles->id ?>" <?= isset($_POST['console']) && $_POST['console'] == 1 ? 'selected' : '' ?>><?= $consoles->name ?></option>
+                                 <?php
+                             }
+                             ?>
                          </select>
                          <label><?= REGISTER_CONSOLE ?> :</label>
                          <small class="error"><?= isset($formError['console']) ? $formError['console'] : '' ?></small>                          
                      </div>
                      <div class="col s12 m12 l6 input-field">
                          <label for="gamerTag"><?= REGISTER_GAMERTAG ?> :</label>
-                         <input type="text" id="gamerTag" name="gamerTag" value="<?= isset($_POST['submit']) ? $addUser->gamerTag : '' ?>"  />
-                         <small class="error"><?= isset($formError['gamerTag']) ? $formError['gamerTag'] : '' ?></small>       
+                         <input type="text" id="gamertag" name="gamerTag" value="<?= isset($_POST['submit']) ? $addUser->gamerTag : '' ?>"  />
+                         <small class="error"><?= isset($formError['gamerTag']) ? $formError['gamerTag'] : '' ?></small>   
+                         <small id="gtError" class="error hide" ><?= ERROR_EXIST_GAMERTAG ?></small>   
                      </div>
                  </div>
                  <div class="row">
@@ -100,9 +106,9 @@
                          <small class="error"><?= isset($formError['passwordError']) ? $formError['passwordError'] : '' ?></small>         
                      </div>
                  </div>
-                 <div class="row right-align">
+                 <div class="row right-align" id="register">
                      <div class="col s12 m12 l12">
-                         <a class="waves-effect waves-dark btn modal-trigger" title="Validation de l'inscription" href="#"><input type="submit" name="submit" class="" value="<?= REGISTER_SIGNIN ?>" /></a>
+                      <input type="submit" name="submit" class="waves-effect waves-dark btn" value="<?= REGISTER_SIGNIN ?>" />
                      </div>
                  </div>
              </form>

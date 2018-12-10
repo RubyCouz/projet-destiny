@@ -2,24 +2,23 @@
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                <h5 class="white-text"><?= FOOTER_LINK ?></h5>
             </div>
             <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
                 <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://www.bungie.net/fr">Compagnon Bungie</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://www.next-stage.fr/category/destiny-2">Destiny 2 Next Stage</a></li>
+                    <li><a class="grey-text text-lighten-3" href="https://www.youtube.com/channel/UCrUq5977BG4uMtJqMR6unqA">Chaine Play Box</a></li>
+                    <li><a class="grey-text text-lighten-3" href="mailto:ced270784@gmail.com">Suggestions, contact</a></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="footer-copyright">
         <div class="container">
-            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <p><?= FOOTER_COPYRIGHT ?></p> 
+            <p><?= FOOTER_COPYRIGHT2 ?></p>
+            <p><a href="https://www.bungie.net/fr/View/bungie/trademarks" title="<?= LINK__LEGAL?>"><?= FOOTER_LEGAL ?></a></p>
         </div>
     </div>
 </footer>

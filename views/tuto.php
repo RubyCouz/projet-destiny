@@ -1,50 +1,184 @@
-<?php 
+<?php
+ include '../controllers/tutoController.php';
  include 'header.php';
- ?>
-        <div id="story" class="row section scrollspy">
-            <div class="col s12 m12 l12">
-                <h2>Histoire de Destiny</h2>
-                <p>            
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et pretium nisi, quis consectetur felis. Pellentesque feugiat congue facilisis. In hac habitasse platea dictumst. Praesent convallis eros diam, sit amet pretium odio interdum vel. Sed varius rutrum neque et tristique. Aliquam erat volutpat. Phasellus enim ligula, porta vitae neque euismod, interdum lacinia nibh. Donec id quam eros. Fusce molestie enim nec ante bibendum, et fermentum erat hendrerit.
-                    Vestibulum ultrices justo eu turpis accumsan vehicula. Morbi posuere dictum dui non sagittis. Proin luctus tincidunt enim, eu malesuada odio eleifend vel. Phasellus luctus nisi sit amet dignissim volutpat. Praesent sit amet imperdiet sem. Vivamus quis nunc quis velit suscipit ultricies a vel orci. Praesent suscipit imperdiet purus, a euismod tellus vehicula a. Ut mi massa, luctus porttitor libero eget, convallis scelerisque mi. Cras cursus egestas facilisis. Nam luctus felis sit amet diam sodales, sed accumsan nisl pharetra.
-                    Aliquam ornare lacus sit amet eros sodales, eu blandit nisi efficitur. Aenean quis rhoncus nisi. Ut at iaculis ante. Fusce nec ipsum porta, molestie libero eu, ullamcorper erat. Nulla laoreet malesuada convallis. Morbi suscipit sit amet sapien vel tincidunt. Ut faucibus, nulla sed consequat varius, purus nunc ullamcorper elit, non interdum metus arcu eu erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur pretium, lacus mattis egestas feugiat, sem urna posuere tellus, pulvinar bibendum dolor libero eu lectus. Nulla quis sem nec purus pharetra ullamcorper eu a nulla. Maecenas vel eros orci. Ut vulputate lorem nunc, non lacinia dui dignissim a. Praesent ut nulla eget ante rhoncus commodo. Phasellus quis nibh non purus iaculis commodo. Etiam quam tortor, faucibus ac ullamcorper in, lobortis sit amet felis.
-                    Proin at tempor leo. Nunc venenatis ultrices elit, eu imperdiet dolor rhoncus sit amet. Cras ut feugiat augue. Fusce imperdiet ante arcu, eget gravida augue bibendum ac. Vivamus maximus tincidunt mattis. Maecenas gravida accumsan viverra. Sed sit amet dignissim orci, in lobortis erat. Aliquam erat volutpat. Pellentesque viverra aliquet nulla, ac mollis mi ullamcorper vitae. Pellentesque placerat porta sem sit amet viverra. Donec sit amet nunc sollicitudin, placerat mauris in, efficitur urna. Curabitur tempus ut nisi sit amet consectetur. Nulla pharetra purus vel lacus suscipit suscipit. Phasellus fermentum rutrum justo a consectetur. Nam vel odio eu dui tempor fermentum in nec lorem. Pellentesque fringilla lacus pellentesque mauris luctus, sed vehicula est luctus.
-                    Proin tortor mi, consequat nec ipsum in, tincidunt imperdiet orci. Phasellus at metus pulvinar sapien malesuada feugiat. Pellentesque mollis mi id pretium gravida. Suspendisse consequat nibh velit, ut maximus nibh hendrerit sed. Curabitur nec aliquet turpis, non lacinia sem. Mauris id iaculis orci, vel porta neque. Nulla eu efficitur dolor. Sed pulvinar, felis non volutpat volutpat, dui sem eleifend ligula, nec volutpat turpis diam at metus. Pellentesque euismod est ac ligula fermentum porttitor. Nunc massa augue, ullamcorper eu varius eu, semper sit amet enim. Phasellus tincidunt, tellus quis fermentum sodales, ante velit dapibus leo, et pharetra magna ex ut massa. Donec at purus sit amet ex bibendum rhoncus. Suspendisse luctus, sapien vel viverra suscipit, ante lacus bibendum turpis, in scelerisque augue tellus id sem. Sed bibendum condimentum blandit. Morbi viverra lectus turpis, eu volutpat tortor tincidunt nec. Curabitur molestie, risus id dictum pulvinar, risus purus iaculis odio, a faucibus nulla nunc nec ipsum. 
-                </p>
-                <p>            
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et pretium nisi, quis consectetur felis. Pellentesque feugiat congue facilisis. In hac habitasse platea dictumst. Praesent convallis eros diam, sit amet pretium odio interdum vel. Sed varius rutrum neque et tristique. Aliquam erat volutpat. Phasellus enim ligula, porta vitae neque euismod, interdum lacinia nibh. Donec id quam eros. Fusce molestie enim nec ante bibendum, et fermentum erat hendrerit.
-                    Vestibulum ultrices justo eu turpis accumsan vehicula. Morbi posuere dictum dui non sagittis. Proin luctus tincidunt enim, eu malesuada odio eleifend vel. Phasellus luctus nisi sit amet dignissim volutpat. Praesent sit amet imperdiet sem. Vivamus quis nunc quis velit suscipit ultricies a vel orci. Praesent suscipit imperdiet purus, a euismod tellus vehicula a. Ut mi massa, luctus porttitor libero eget, convallis scelerisque mi. Cras cursus egestas facilisis. Nam luctus felis sit amet diam sodales, sed accumsan nisl pharetra.
-                    Aliquam ornare lacus sit amet eros sodales, eu blandit nisi efficitur. Aenean quis rhoncus nisi. Ut at iaculis ante. Fusce nec ipsum porta, molestie libero eu, ullamcorper erat. Nulla laoreet malesuada convallis. Morbi suscipit sit amet sapien vel tincidunt. Ut faucibus, nulla sed consequat varius, purus nunc ullamcorper elit, non interdum metus arcu eu erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur pretium, lacus mattis egestas feugiat, sem urna posuere tellus, pulvinar bibendum dolor libero eu lectus. Nulla quis sem nec purus pharetra ullamcorper eu a nulla. Maecenas vel eros orci. Ut vulputate lorem nunc, non lacinia dui dignissim a. Praesent ut nulla eget ante rhoncus commodo. Phasellus quis nibh non purus iaculis commodo. Etiam quam tortor, faucibus ac ullamcorper in, lobortis sit amet felis.
-                    Proin at tempor leo. Nunc venenatis ultrices elit, eu imperdiet dolor rhoncus sit amet. Cras ut feugiat augue. Fusce imperdiet ante arcu, eget gravida augue bibendum ac. Vivamus maximus tincidunt mattis. Maecenas gravida accumsan viverra. Sed sit amet dignissim orci, in lobortis erat. Aliquam erat volutpat. Pellentesque viverra aliquet nulla, ac mollis mi ullamcorper vitae. Pellentesque placerat porta sem sit amet viverra. Donec sit amet nunc sollicitudin, placerat mauris in, efficitur urna. Curabitur tempus ut nisi sit amet consectetur. Nulla pharetra purus vel lacus suscipit suscipit. Phasellus fermentum rutrum justo a consectetur. Nam vel odio eu dui tempor fermentum in nec lorem. Pellentesque fringilla lacus pellentesque mauris luctus, sed vehicula est luctus.
-                    Proin tortor mi, consequat nec ipsum in, tincidunt imperdiet orci. Phasellus at metus pulvinar sapien malesuada feugiat. Pellentesque mollis mi id pretium gravida. Suspendisse consequat nibh velit, ut maximus nibh hendrerit sed. Curabitur nec aliquet turpis, non lacinia sem. Mauris id iaculis orci, vel porta neque. Nulla eu efficitur dolor. Sed pulvinar, felis non volutpat volutpat, dui sem eleifend ligula, nec volutpat turpis diam at metus. Pellentesque euismod est ac ligula fermentum porttitor. Nunc massa augue, ullamcorper eu varius eu, semper sit amet enim. Phasellus tincidunt, tellus quis fermentum sodales, ante velit dapibus leo, et pharetra magna ex ut massa. Donec at purus sit amet ex bibendum rhoncus. Suspendisse luctus, sapien vel viverra suscipit, ante lacus bibendum turpis, in scelerisque augue tellus id sem. Sed bibendum condimentum blandit. Morbi viverra lectus turpis, eu volutpat tortor tincidunt nec. Curabitur molestie, risus id dictum pulvinar, risus purus iaculis odio, a faucibus nulla nunc nec ipsum. 
-                </p>
-                <p>            
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et pretium nisi, quis consectetur felis. Pellentesque feugiat congue facilisis. In hac habitasse platea dictumst. Praesent convallis eros diam, sit amet pretium odio interdum vel. Sed varius rutrum neque et tristique. Aliquam erat volutpat. Phasellus enim ligula, porta vitae neque euismod, interdum lacinia nibh. Donec id quam eros. Fusce molestie enim nec ante bibendum, et fermentum erat hendrerit. Vestibulum ultrices justo eu turpis accumsan vehicula. Morbi posuere dictum dui non sagittis. Proin luctus tincidunt enim, eu malesuada odio eleifend vel. Phasellus luctus nisi sit amet dignissim volutpat. Praesent sit amet imperdiet sem. Vivamus quis nunc quis velit suscipit ultricies a vel orci. Praesent suscipit imperdiet purus, a euismod tellus vehicula a. Ut mi massa, luctus porttitor libero eget, convallis scelerisque mi. Cras cursus egestas facilisis. Nam luctus felis sit amet diam sodales, sed accumsan nisl pharetra. Aliquam ornare lacus sit amet eros sodales, eu blandit nisi efficitur. Aenean quis rhoncus nisi. Ut at iaculis ante. Fusce nec ipsum porta, molestie libero eu, ullamcorper erat. Nulla laoreet malesuada convallis. Morbi suscipit sit amet sapien vel tincidunt. Ut faucibus, nulla sed consequat varius, purus nunc ullamcorper elit, non interdum metus arcu eu erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur pretium, lacus mattis egestas feugiat, sem urna posuere tellus, pulvinar bibendum dolor libero eu lectus. Nulla quis sem nec purus pharetra ullamcorper eu a nulla. Maecenas vel eros orci. Ut vulputate lorem nunc, non lacinia dui dignissim a. Praesent ut nulla eget ante rhoncus commodo. Phasellus quis nibh non purus iaculis commodo. Etiam quam tortor, faucibus ac ullamcorper in, lobortis sit amet felis. Proin at tempor leo. Nunc venenatis ultrices elit, eu imperdiet dolor rhoncus sit amet. Cras ut feugiat augue. Fusce imperdiet ante arcu, eget gravida augue bibendum ac. Vivamus maximus tincidunt mattis. Maecenas gravida accumsan viverra. Sed sit amet dignissim orci, in lobortis erat. Aliquam erat volutpat. Pellentesque viverra aliquet nulla, ac mollis mi ullamcorper vitae. Pellentesque placerat porta sem sit amet viverra. Donec sit amet nunc sollicitudin, placerat mauris in, efficitur urna. Curabitur tempus ut nisi sit amet consectetur. Nulla pharetra purus vel lacus suscipit suscipit. Phasellus fermentum rutrum justo a consectetur. Nam vel odio eu dui tempor fermentum in nec lorem. Pellentesque fringilla lacus pellentesque mauris luctus, sed vehicula est luctus. Proin tortor mi, consequat nec ipsum in, tincidunt imperdiet orci. Phasellus at metus pulvinar sapien malesuada feugiat. Pellentesque mollis mi id pretium gravida. Suspendisse consequat nibh velit, ut maximus nibh hendrerit sed. Curabitur nec aliquet turpis, non lacinia sem. Mauris id iaculis orci, vel porta neque. Nulla eu efficitur dolor. Sed pulvinar, felis non volutpat volutpat, dui sem eleifend ligula, nec volutpat turpis diam at metus. Pellentesque euismod est ac ligula fermentum porttitor. Nunc massa augue, ullamcorper eu varius eu, semper sit amet enim. Phasellus tincidunt, tellus quis fermentum sodales, ante velit dapibus leo, et pharetra magna ex ut massa. Donec at purus sit amet ex bibendum rhoncus. Suspendisse luctus, sapien vel viverra suscipit, ante lacus bibendum turpis, in scelerisque augue tellus id sem. Sed bibendum condimentum blandit. Morbi viverra lectus turpis, eu volutpat tortor tincidunt nec. Curabitur molestie, risus id dictum pulvinar, risus purus iaculis odio, a faucibus nulla nunc nec ipsum. 
-                </p>
-            </div>
+?>
+<div class="container-fluid">
+    <!-- affichage tabs pour les étapes -->
+    <div class="row">
+        <div class="col s12 m12 l12"> 
+            <ul class="tabs tabs-fixed-width">
+                <?php
+                 if (isset($_POST['summary']))
+                 {
+                     ?>
+                     <li class="tab col center-align" ><a href="#intro<?= $_POST['summary'] ?>" title="<?= LINK_TABS_INTRO ?>"><?= TABS_INTRO ?></a></li>
+                     <?php
+                     foreach ($getTutoResult as $tuto)
+                     {
+                         ?>
+                         <li class="tab col center-align"><a href="#step<?= $tuto->id ?>" title="<?= htmlspecialchars_decode($tuto->raidStep) ?>"><?= htmlspecialchars_decode($tuto->raidStep) ?></a></li>
+                         <?php
+                     }
+                 }
+                ?>
+            </ul>
         </div>
-        <div id="reference" class="row section scrollspy">
-            <div class="col s12 m12 l12">
-                <h2>Références culturelles</h2>
-                <h3>lorem ipsum</h3>
-                <p>            
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et pretium nisi, quis consectetur felis. Pellentesque feugiat congue facilisis. In hac habitasse platea dictumst. Praesent convallis eros diam, sit amet pretium odio interdum vel. Sed varius rutrum neque et tristique. Aliquam erat volutpat. Phasellus enim ligula, porta vitae neque euismod, interdum lacinia nibh. Donec id quam eros. Fusce molestie enim nec ante bibendum, et fermentum erat hendrerit.
-                    Vestibulum ultrices justo eu turpis accumsan vehicula. Morbi posuere dictum dui non sagittis. Proin luctus tincidunt enim, eu malesuada odio eleifend vel. Phasellus luctus nisi sit amet dignissim volutpat. Praesent sit amet imperdiet sem. Vivamus quis nunc quis velit suscipit ultricies a vel orci. Praesent suscipit imperdiet purus, a euismod tellus vehicula a. Ut mi massa, luctus porttitor libero eget, convallis scelerisque mi. Cras cursus egestas facilisis. Nam luctus felis sit amet diam sodales, sed accumsan nisl pharetra.
-                    Aliquam ornare lacus sit amet eros sodales, eu blandit nisi efficitur. Aenean quis rhoncus nisi. Ut at iaculis ante. Fusce nec ipsum porta, molestie libero eu, ullamcorper erat. Nulla laoreet malesuada convallis. Morbi suscipit sit amet sapien vel tincidunt. Ut faucibus, nulla sed consequat varius, purus nunc ullamcorper elit, non interdum metus arcu eu erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur pretium, lacus mattis egestas feugiat, sem urna posuere tellus, pulvinar bibendum dolor libero eu lectus. Nulla quis sem nec purus pharetra ullamcorper eu a nulla. Maecenas vel eros orci. Ut vulputate lorem nunc, non lacinia dui dignissim a. Praesent ut nulla eget ante rhoncus commodo. Phasellus quis nibh non purus iaculis commodo. Etiam quam tortor, faucibus ac ullamcorper in, lobortis sit amet felis.
-                    Proin at tempor leo. Nunc venenatis ultrices elit, eu imperdiet dolor rhoncus sit amet. Cras ut feugiat augue. Fusce imperdiet ante arcu, eget gravida augue bibendum ac. Vivamus maximus tincidunt mattis. Maecenas gravida accumsan viverra. Sed sit amet dignissim orci, in lobortis erat. Aliquam erat volutpat. Pellentesque viverra aliquet nulla, ac mollis mi ullamcorper vitae. Pellentesque placerat porta sem sit amet viverra. Donec sit amet nunc sollicitudin, placerat mauris in, efficitur urna. Curabitur tempus ut nisi sit amet consectetur. Nulla pharetra purus vel lacus suscipit suscipit. Phasellus fermentum rutrum justo a consectetur. Nam vel odio eu dui tempor fermentum in nec lorem. Pellentesque fringilla lacus pellentesque mauris luctus, sed vehicula est luctus.
-                    Proin tortor mi, consequat nec ipsum in, tincidunt imperdiet orci. Phasellus at metus pulvinar sapien malesuada feugiat. Pellentesque mollis mi id pretium gravida. Suspendisse consequat nibh velit, ut maximus nibh hendrerit sed. Curabitur nec aliquet turpis, non lacinia sem. Mauris id iaculis orci, vel porta neque. Nulla eu efficitur dolor. Sed pulvinar, felis non volutpat volutpat, dui sem eleifend ligula, nec volutpat turpis diam at metus. Pellentesque euismod est ac ligula fermentum porttitor. Nunc massa augue, ullamcorper eu varius eu, semper sit amet enim. Phasellus tincidunt, tellus quis fermentum sodales, ante velit dapibus leo, et pharetra magna ex ut massa. Donec at purus sit amet ex bibendum rhoncus. Suspendisse luctus, sapien vel viverra suscipit, ante lacus bibendum turpis, in scelerisque augue tellus id sem. Sed bibendum condimentum blandit. Morbi viverra lectus turpis, eu volutpat tortor tincidunt nec. Curabitur molestie, risus id dictum pulvinar, risus purus iaculis odio, a faucibus nulla nunc nec ipsum. 
-                </p>
-                <h3>lorem ipsum</h3>
+    </div>
+</div>
+<!-- liste déroulante pour la sélection du raid -->
+<div class="container raidSelect">
+    <div class="row center-align">
+        <div class="col s6 offset-s3">
+            <form action="#" method="POST" id="select">
+                <label for="summary"></label>
+                <select id="summary" name="summary">
+                    <option value=""><?= TUTO_SELECT ?></option>
+                    <?php
+                     foreach ($getTitleTutoResult as $titleTuto)
+                     {
+                         ?>
+                         <option value="<?= $titleTuto->id ?>" <?= isset($_POST['summary']) && $_POST['summary'] == $titleTuto->id ? 'selected' : '' ?>><?= $titleTuto->title ?></option>
+                         <?php
+                     }
+                    ?>
+                </select>
+            </form>            
+        </div>
+    </div>
+</div>
+<?php
+ if (isset($_POST['summary']))
+ {
+     ?>
+     <!-- section intro quête -->
+     <div class="container" id="intro<?= $getTutoResult[0]->id_u01cc_contribs ?>">
+         <div class="row">
+             <?php
+             // affichage des boutons de modifcation et de suppression en cas d'utilisateur connecté
+             if (isset($_SESSION['isConnect']))
+             {
+                 // si l'utilisateur est connecté, on affiche les boutons permettant la modification et la suppression du contenu s'il en est l'auteur
+                 if ($_SESSION['id'] == $getTutoResult[0]->id_u01cc_users || $_SESSION['role'] == 1 || $_SESSION['role'] == 3)
+                 {
+                     ?>
+                     <div class="col s1 offset-s10">
+                         <a href="#deleteIntroModal" class="waves-effect waves-dark modal-trigger" title="<?= LINK_DELETE ?>"><i class="material-icons">delete</i></a>                           
+                     </div>
+                     <div class="col s1">
+                         <a href="#updateIntroModal" class="waves-effect waves-dark modal-trigger" title="<?= LINK_UPDATE ?>"><i class="material-icons">edit</i></a> 
+                     </div>
 
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et pretium nisi, quis consectetur felis. Pellentesque feugiat congue facilisis. In hac habitasse platea dictumst. Praesent convallis eros diam, sit amet pretium odio interdum vel. Sed varius rutrum neque et tristique. Aliquam erat volutpat. Phasellus enim ligula, porta vitae neque euismod, interdum lacinia nibh. Donec id quam eros. Fusce molestie enim nec ante bibendum, et fermentum erat hendrerit.
-                    Vestibulum ultrices justo eu turpis accumsan vehicula. Morbi posuere dictum dui non sagittis. Proin luctus tincidunt enim, eu malesuada odio eleifend vel. Phasellus luctus nisi sit amet dignissim volutpat. Praesent sit amet imperdiet sem. Vivamus quis nunc quis velit suscipit ultricies a vel orci. Praesent suscipit imperdiet purus, a euismod tellus vehicula a. Ut mi massa, luctus porttitor libero eget, convallis scelerisque mi. Cras cursus egestas facilisis. Nam luctus felis sit amet diam sodales, sed accumsan nisl pharetra.
-                    Aliquam ornare lacus sit amet eros sodales, eu blandit nisi efficitur. Aenean quis rhoncus nisi. Ut at iaculis ante. Fusce nec ipsum porta, molestie libero eu, ullamcorper erat. Nulla laoreet malesuada convallis. Morbi suscipit sit amet sapien vel tincidunt. Ut faucibus, nulla sed consequat varius, purus nunc ullamcorper elit, non interdum metus arcu eu erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur pretium, lacus mattis egestas feugiat, sem urna posuere tellus, pulvinar bibendum dolor libero eu lectus. Nulla quis sem nec purus pharetra ullamcorper eu a nulla. Maecenas vel eros orci. Ut vulputate lorem nunc, non lacinia dui dignissim a. Praesent ut nulla eget ante rhoncus commodo. Phasellus quis nibh non purus iaculis commodo. Etiam quam tortor, faucibus ac ullamcorper in, lobortis sit amet felis.
-                    Proin at tempor leo. Nunc venenatis ultrices elit, eu imperdiet dolor rhoncus sit amet. Cras ut feugiat augue. Fusce imperdiet ante arcu, eget gravida augue bibendum ac. Vivamus maximus tincidunt mattis. Maecenas gravida accumsan viverra. Sed sit amet dignissim orci, in lobortis erat. Aliquam erat volutpat. Pellentesque viverra aliquet nulla, ac mollis mi ullamcorper vitae. Pellentesque placerat porta sem sit amet viverra. Donec sit amet nunc sollicitudin, placerat mauris in, efficitur urna. Curabitur tempus ut nisi sit amet consectetur. Nulla pharetra purus vel lacus suscipit suscipit. Phasellus fermentum rutrum justo a consectetur. Nam vel odio eu dui tempor fermentum in nec lorem. Pellentesque fringilla lacus pellentesque mauris luctus, sed vehicula est luctus.
-                    Proin tortor mi, consequat nec ipsum in, tincidunt imperdiet orci. Phasellus at metus pulvinar sapien malesuada feugiat. Pellentesque mollis mi id pretium gravida. Suspendisse consequat nibh velit, ut maximus nibh hendrerit sed. Curabitur nec aliquet turpis, non lacinia sem. Mauris id iaculis orci, vel porta neque. Nulla eu efficitur dolor. Sed pulvinar, felis non volutpat volutpat, dui sem eleifend ligula, nec volutpat turpis diam at metus. Pellentesque euismod est ac ligula fermentum porttitor. Nunc massa augue, ullamcorper eu varius eu, semper sit amet enim. Phasellus tincidunt, tellus quis fermentum sodales, ante velit dapibus leo, et pharetra magna ex ut massa. Donec at purus sit amet ex bibendum rhoncus. Suspendisse luctus, sapien vel viverra suscipit, ante lacus bibendum turpis, in scelerisque augue tellus id sem. Sed bibendum condimentum blandit. Morbi viverra lectus turpis, eu volutpat tortor tincidunt nec. Curabitur molestie, risus id dictum pulvinar, risus purus iaculis odio, a faucibus nulla nunc nec ipsum. 
-                </p>
-            </div>
-        </div>
-<?php 
-include 'footer.php';
+                     <!-- modals de confirmation de suppression et modification -->
+                     <div id="deleteIntroModal" class="modal contribs">
+                         <div class="modal-content">
+                             <h4><?= DEL_INTRO_TITLE ?> :</h4>
+                             <p><?= DEL_INTRO_CONTENT1 ?></p>
+                             <p><?= DEL_INTRO_CONTENT2 ?></p>
+                             <p><?= DEL_INTRO_CONTENT3 ?></p>
+                         </div>
+                         <div class="modal-footer">
+                             <form action="tuto.php" method="POST">
+                                 <label for="introID"></label>
+                                 <input id="introID" class="hide" name="introID" value="<?= $getTitleTutoResult[0]->id_u01cc_contribs ?>">
+                                 <label for="cancelDeleteIntro"></label>
+                                 <input id="cancelDeleteIntro" type="button" class="modal-action modal-close waves-effect modal-trigger waves-dark btn-flat" value="<?= MODAL_BUTTON_NO ?>" />
+                                 <label for="confirmDeleteIntro"></label>
+                                 <input id="confirmDeleteIntro" type="submit" name="confirmDelIntro" class="modal-action modal-close waves-effect modal-trigger waves-dark btn-flat" value="<?= MODAL_BUTTON_YES ?>" />
+                             </form>
+                         </div>
+                     </div>
+                     <div id="updateIntroModal" class="modal">
+                         <div class="modal-content">
+                             <h4><?= UP_MOD_TITLE ?> :</h4>
+                             <p><?= UP_MOD_CONTENT1 ?></p>
+                         </div>
+                         <div class="modal-footer">
+                             <a href="#!" class="modal-action modal-close waves-effect waves-dark btn-flat" title="<?= LINK_MOD_CANCEL ?>"><?= MODAL_BUTTON_NO ?></a>
+                             <a href="updateIntroContent.php?id=<?= $getTutoResult[0]->id_u01cc_contribs ?>" id="acceptButton" name="valid" class="modal-action modal-close waves-effect modal-trigger waves-dark btn-flat" title="<?= LINK_MOD_CONFIRM ?>"><?= MODAL_BUTTON_YES ?></a>
+                         </div>
+                     </div>
+                     <?php
+                 }
+             }
+             ?>
+         </div>
+         <!-- affichage du titre et du contenu servant d'intro -->
+         <div class="row">
+             <div class="col s12 m12 l12">
+                 <h1><?= htmlspecialchars_decode($getTutoResult[0]->title) ?></h1>
+             </div>
+         </div>             
+         <div class="row">
+             <div class="col s12 m12 l12"><?= htmlspecialchars_decode($getTutoResult[0]->content) ?></div>
+         </div>
+     </div>
+     <?php
+     foreach ($getTutoResult as $tuto)
+     {
+         ?>
+         <!-- affichage des étapes -->
+         <div  class="container <?= $tuto->id_u01cc_contribs ?>" id="step<?= $tuto->id ?>">
+             <div class="row">
+                 <?php
+                 if (isset($_SESSION['isConnect']))
+                 {
+                     // si l'utilisateur est connecté, on affiche les boutons permettant la modification et la suppression du contenu s'il en est l'auteur
+                     if ($_SESSION['id'] == $tuto->id_u01cc_users || $_SESSION['role'] == 1 || $_SESSION['role'] == 3)
+                     {
+                         ?>
+                         <div class="col s1 offset-s10">
+                             <a href="#deleteStepModal<?= $tuto->id ?>" class="waves-effect waves-dark modal-trigger" title="<?= LINK_DELETE ?>" data-id="<?= $tuto->id ?>"><i class="material-icons">delete</i></a>                           
+                         </div>
+                         <div class="col s1">
+                             <a href="#updateStepModal<?= $tuto->id ?>" class="waves-effect waves-dark modal-trigger" title="<?= LINK_UPDATE ?>"><i class="material-icons">edit</i></a> 
+                         </div>
+
+                         <!-- modals de confirmation de suppression et modification -->
+                         <div id="deleteStepModal<?= $tuto->id ?>" class="modal step">
+                             <div class="modal-content">
+                                 <h4><?= DEL_MOD_TITLE ?> :</h4>
+                                 <p><?= DEL_MOD_CONTENT1 ?></p>
+                                 <p><?= DEL_MOD_CONTENT2 ?></p>
+                             </div>
+                             <div class="modal-footer">
+                                 <form action="tuto.php" method="POST">
+                                     <label for="stepId"></label>
+                                     <input id="stepId" class="hide" name="stepId" value="<?= $tuto->id ?>">
+                                     <label for="cancelDeleteStep"></label>
+                                     <input id="cancelDeleteStep" type="button" class="modal-action modal-close waves-effect modal-trigger waves-dark btn-flat" value="<?= MODAL_BUTTON_NO ?>" />
+                                     <label for="confirmDeleteStep"></label>
+                                     <input id="confirmDeleteStep" type="submit" name="confirmDelStep" class="modal-action modal-close waves-effect modal-trigger waves-dark btn-flat" value="<?= MODAL_BUTTON_YES ?>" />
+                                 </form>
+                             </div>
+                         </div>
+                         <div id="updateStepModal<?= $tuto->id ?>" class="modal">
+                             <div class="modal-content">
+                                 <h4><?= UP_MOD_TITLE ?> :</h4>
+                                 <p><?= UP_MOD_CONTENT1 ?></p>
+                             </div>
+                             <div class="modal-footer">
+                                 <a href="#!" class="modal-action modal-close waves-effect waves-dark btn-flat" title="Annulation<?= UP_MOD_CONTENT1 ?>"><?= MODAL_BUTTON_NO ?></a>
+                                 <a href="updateStepContent.php?id=<?= $tuto->id ?>" id="updateStepButton" name="update" class="modal-action modal-close waves-effect modal-trigger waves-dark btn-flat" title="<?= LINK_MOD_CONFIRM ?>"><?= MODAL_BUTTON_YES ?></a>
+                             </div>
+                         </div>
+                         <?php
+                     }
+                 }
+                 ?>
+             </div>
+             <!-- affichage du contenu et du titre des étapes -->
+             <div class="row">
+                 <div class="col s12 m12 l12">
+                     <h2><?= htmlspecialchars_decode($tuto->raidStep) ?></h2>
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="col s12 m12 l12"><?= htmlspecialchars_decode($tuto->contentStep) ?>
+                 </div>
+             </div>
+         </div>
+         <?php
+     }
+ }
+ include_once 'footer.php';
 ?>

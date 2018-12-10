@@ -27,7 +27,7 @@
                          <div class="card">
                              <div class="card-content white-text">
                                  <div class="card-image">
-                                     <img src="assets/img/accueil1.jpg">
+                                     <img  class="homePic" src="assets/img/accueil1.jpg" alt="Image d'accueil" title="Titan à la Tour" />
                                      <span class="card-title">Bienvenue Gardien!</span>
                                  </div>
                                  <div class="center-align">
@@ -39,7 +39,7 @@
                                      </p>
                                      <p>
                                          Ce site est encore en construction, certaines fonctionnalités ne sont pas encore disponible, veuillez nous en excuser. Toutefois si vous avez des suggestion quant à l'amélioration du site (navigation, organisation, 
-                                         fonctionnalités, etc...) vous pouvez soummettre vos idées <a href="#">ici</a>.
+                                         fonctionnalités, etc...) vous pouvez soummettre vos idées <a href="mailto:ced270784@gmail.com">ici</a>.
                                      </p>
                                  </div>                        
                              </div>

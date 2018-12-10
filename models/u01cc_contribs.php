@@ -30,20 +30,19 @@
       */
      public function addContent()
      {
-         $state = false;
+         // on définit la requête permettant l'insertion dans la base de données
          $query = 'INSERT INTO `u01cc_contribs` (`title`, `content`, `dateHour`, `id_u01cc_users`, `id_u01cc_categoriesContribs`) '
                  . 'VALUES (:title, :content, :dateHour, :id_u01cc_users, :id_u01cc_categoriesContribs)';
+         // on prépare la requête
          $addContent = $this->pdo->prepare($query);
+         // on assigne les valeurs récupérées dans le formulaire au marqueur nominatif
          $addContent->bindValue(':title', $this->title, PDO::PARAM_STR);
          $addContent->bindValue(':content', $this->content, PDO::PARAM_STR);
          $addContent->bindValue(':dateHour', $this->dateHour, PDO::PARAM_STR);
          $addContent->bindValue(':id_u01cc_users', $this->id_u01cc_users, PDO::PARAM_INT);
          $addContent->bindValue(':id_u01cc_categoriesContribs', $this->id_u01cc_categoriesContribs, PDO::PARAM_INT);
-         if ($addContent->execute())
-         {
-             $state = true;
-         }
-         return $state;
+         // on execute la requête
+         return $addContent->execute(); 
      }
 
      /**
@@ -82,20 +81,23 @@
      }
 
      /**
-      * méthode supprimant le contenu lors de la modération
+      * méthode supprimant une contribution
       * @return type boolean
       */
      public function deleteContent()
-     {
+     {//on indique la requète permettant la suppression de données
          $query = 'DELETE FROM `u01cc_contribs` '
                  . 'WHERE `u01cc_contribs`.`id` = :id';
+         // prepare la requète
          $deleteContent = $this->pdo->prepare($query);
+         //on assigne une valeur au marquer nominatif
          $deleteContent->bindValue(':id', $this->id, PDO::PARAM_INT);
+         //on execute la requète
          return $deleteContent->execute();
      }
 
      /**
-      * methode affichant le contenu validé
+      * methode affichant le titre d'un raid
       * @return type boolean
       */
      public function getTitleRaid()
@@ -108,6 +110,63 @@
          if (is_object($getTitleRaid))
          {
              $isObjectResult = $getTitleRaid->fetchAll(PDO::FETCH_OBJ);
+         }
+         return $isObjectResult;
+     }
+
+     /**
+      * méthode permettant l'affichage du titre d'une quête
+      * @return type boolean
+      */
+     public function getTitleQuest()
+     {
+         $query = 'SELECT `u01cc_contribs`.`id` AS `id`, `title` '
+                 . 'FROM `u01cc_contribs` '
+                 . 'WHERE `id_u01cc_categoriesContribs` = \'2\' '
+                 . 'AND `id_u01cc_status` = \'1\'';
+         $getTitleRaid = $this->pdo->query($query);
+         if (is_object($getTitleRaid))
+         {
+             $isObjectResult = $getTitleRaid->fetchAll(PDO::FETCH_OBJ);
+         }
+         return $isObjectResult;
+     }
+
+     /**
+      * méthode affichant le titre d'un tuto
+      * @return type boolean
+      */
+     public function getTitleTuto()
+     {
+         $query = 'SELECT `u01cc_contribs`.`id` AS `id`, `title` '
+                 . 'FROM `u01cc_contribs` '
+                 . 'WHERE `id_u01cc_categoriesContribs` = \'3\' '
+                 . 'AND `id_u01cc_status` = \'1\'';
+         $getTitleTuto = $this->pdo->query($query);
+         if (is_object($getTitleTuto))
+         {
+             $isObjectResult = $getTitleTuto->fetchAll(PDO::FETCH_OBJ);
+         }
+         return $isObjectResult;
+     }
+
+     /**
+      * méthode récupérant l'id d'une quête (table contribs=
+      * @return type boolean
+      */
+     public function getQuestId()
+     {
+         $query = 'SELECT `u01cc_contribs`.`id` AS `id` '
+                 . 'FROM `u01cc_contribs` '
+                 . 'WHERE `id_u01cc_categoriesContribs` = \'2\' '
+                 . 'AND `id_u01cc_status` = \'1\' '
+                 . 'AND `id` = :id';
+         $getQuestId = $this->pdo->prepare($query);
+         $getQuestId->bindValue(':id', $this->id, PDO::PARAM_INT);
+         $getQuestId->execute();
+         if (is_object($getQuestId))
+         {
+             $isObjectResult = $getQuestId->fetchAll(PDO::FETCH_OBJ);
          }
          return $isObjectResult;
      }
@@ -126,22 +185,23 @@
          return $isObjectResult;
      }
 
-     public function getRaidStep()
+     /**
+      * méthode permettant la récupération du contenu de la table contribs (sert d'intro au tuto)
+      * @return type boolean
+      */
+     public function getQuestIntro()
      {
-         $query = 'SELECT `u01cc_contribs`.`id` AS `id`,  `gamerTag`, DATE_FORMAT(`u01cc_contribs`.`dateHour`, \'%d/%m/%Y\') AS `dateHour`, `id_u01cc_categoriesContribs`, `id_u01cc_status`, `id_u01cc_users`, `u01cc_raidSteps`.`id` AS `nextId`, `id_u01cc_contribs`, `contentStep`, `raidStep` '
+         $query = 'SELECT `u01cc_contribs`.`id` AS `id`, `title`, `content`, `id_u01cc_users` '
                  . 'FROM `u01cc_contribs` '
-                 . 'INNER JOIN `u01cc_raidSteps` '
-                 . 'ON `u01cc_contribs`.`id` = `id_u01cc_contribs` '
-                 . 'INNER JOIN `u01cc_users` '
-                 . 'ON `u01cc_users`.`id` = `id_u01cc_users` '
-                 . 'INNER JOIN `u01cc_categoriesContribs` '
-                 . 'ON `id_u01cc_categoriesContribs` = `u01cc_categoriesContribs`.`id` '
-                 . 'WHERE `id_u01cc_status` = \'1\' '
-                 . 'AND `id_u01cc_categoriesContribs` = \'1\'';
-         $getRaidStep = $this->pdo->query($query);
-         if (is_object($getRaidStep))
+                 . 'WHERE `id_u01cc_categoriesContribs` = \'2\' '
+                 . 'AND `id` = :id '
+                 . 'AND `id_u01cc_status` = \'1\'';
+         $getQuestIntro = $this->pdo->prepare($query);
+         $getQuestIntro->bindValue(':id', $this->id, PDO::PARAM_INT);
+         $getQuestIntro->execute();
+         if (is_object($getQuestIntro))
          {
-             $isObjectResult = $getRaidStep->fetchAll(PDO::FETCH_OBJ);
+             $isObjectResult = $getQuestIntro->fetch(PDO::FETCH_OBJ);
          }
          return $isObjectResult;
      }
@@ -160,17 +220,118 @@
          }
          return $isObjectResult;
      }
-
+/**
+ * méthode permettant la mise  à jour d'une contribution
+ * @return type
+ */
      public function updateIntroContribs()
      {
+                  // on définit la requête permettant la modifcation dans la base de données
          $query = 'UPDATE `u01cc_contribs` '
                  . 'SET `id_u01cc_status` = \'2\', `title` = :title , `content` = :content '
                  . 'WHERE `id` = :id';
+         // on prépare la requète
          $updateIntroContribs = $this->pdo->prepare($query);
          $updateIntroContribs->bindValue(':title', $this->title, PDO::PARAM_STR);
          $updateIntroContribs->bindValue(':content', $this->content, PDO::PARAM_STR);
          $updateIntroContribs->bindValue(':id', $this->id, PDO::PARAM_STR);
+         // on execute la requète
          return $updateIntroContribs->execute();
+     }
+
+     /**
+      * méthode permettant la récupération des vidéos postées par les utilisateurs.
+      * @return type boolean
+      */
+     public function getUsersVideo()
+     {
+         $query = 'SELECT `u01cc_users`.`id`, `gamerTag`, `title`, `content`, DATE_FORMAT(`u01cc_contribs`.`dateHour`, \'%d/%m/%Y\') AS `dateHour`, `u01cc_contribs`.`id`, `id_u01cc_categoriesContribs`, `id_u01cc_users` '
+                 . 'FROM `u01cc_contribs` '
+                 . 'INNER JOIN `u01cc_users` '
+                 . 'ON `u01cc_users`.`id` = `id_u01cc_users` '
+                 . 'WHERE `id_u01cc_categoriesContribs` = 6 '
+                 . 'AND `id_u01cc_status` = 1 '
+                 . 'AND `id_u01cc_users` = :id_u01cc_users';
+         $getUsersVideo = $this->pdo->prepare($query);
+         $getUsersVideo->bindValue(':id_u01cc_users', $this->id_u01cc_users, PDO::PARAM_INT);
+         $getUsersVideo->execute();
+         if (is_object($getUsersVideo))
+         {
+             $isObjectResult = $getUsersVideo->fetchAll(PDO::FETCH_OBJ);
+         }
+         return $isObjectResult;
+     }
+/**
+ * méthode affichant les artworks postés par un utilisateur en particulier
+ * @return type boolean
+ */
+     public function getUsersArtworks()
+     {
+         $query = 'SELECT `u01cc_users`.`id`, `gamerTag`, `title`, `content`, DATE_FORMAT(`u01cc_contribs`.`dateHour`, \'%d/%m/%Y\') AS `dateHour`, `u01cc_contribs`.`id`, `id_u01cc_categoriesContribs`, `id_u01cc_users` '
+                 . 'FROM `u01cc_contribs` '
+                 . 'INNER JOIN `u01cc_users` '
+                 . 'ON `u01cc_users`.`id` = `id_u01cc_users` '
+                 . 'WHERE `id_u01cc_categoriesContribs` = 7 '
+                 . 'AND `id_u01cc_status` = 1 '
+                 . 'AND `id_u01cc_users` = :id_u01cc_users';
+         $getUsersArtworks = $this->pdo->prepare($query);
+         $getUsersArtworks->bindValue(':id_u01cc_users', $this->id_u01cc_users, PDO::PARAM_INT);
+         $getUsersArtworks->execute();
+         if (is_object($getUsersArtworks))
+         {
+             $isObjectResult = $getUsersArtworks->fetchAll(PDO::FETCH_OBJ);
+         }
+         return $isObjectResult;
+     }
+/**
+ * méthode permettant la lecture de tous les artworks
+ * @return type boolean
+ */
+     public function getAllArtworks()
+     {
+         $query = 'SELECT `u01cc_users`.`id`, `gamerTag`, `title`, `content`, DATE_FORMAT(`u01cc_contribs`.`dateHour`, \'%d/%m/%Y\') AS `dateHour`, `u01cc_contribs`.`id`, `id_u01cc_categoriesContribs`, `id_u01cc_users` '
+                 . 'FROM `u01cc_contribs` '
+                 . 'INNER JOIN `u01cc_users` '
+                 . 'ON `u01cc_users`.`id` = `id_u01cc_users` '
+                 . 'WHERE `id_u01cc_categoriesContribs` = 7 '
+                 . 'AND `id_u01cc_status` = 1';
+         $getAllArtworks = $this->pdo->query($query);
+         if (is_object($getAllArtworks))
+         {
+             $isObjectResult = $getAllArtworks->fetchAll(PDO::FETCH_OBJ);
+         }
+         return $isObjectResult;
+     }
+
+     public function getAllVideo()
+     {
+         $query = 'SELECT `u01cc_users`.`id`, `gamerTag`, `title`, `content`, DATE_FORMAT(`u01cc_contribs`.`dateHour`, \'%d/%m/%Y\') AS `dateHour`, `u01cc_contribs`.`id`, `id_u01cc_categoriesContribs`, `id_u01cc_users` '
+                 . 'FROM `u01cc_contribs` '
+                 . 'INNER JOIN `u01cc_users` '
+                 . 'ON `u01cc_users`.`id` = `id_u01cc_users` '
+                 . 'WHERE `id_u01cc_categoriesContribs` = 6 '
+                 . 'AND `id_u01cc_status` = 1';
+         $getAllVideo = $this->pdo->query($query);
+         if (is_object($getAllVideo))
+         {
+             $isObjectResult = $getAllVideo->fetchAll(PDO::FETCH_OBJ);
+         }
+         return $isObjectResult;
+     }
+
+     public function updateGtContribs()
+     {
+         $query = 'UPDATE `u01cc_contribs` '
+                 . 'SET `id_u01cc_users` = 7 '
+                 . 'WHERE `id_u01cc_users` = :id';
+         $updateGtContribs = $this->pdo->prepare($query);
+         $updateGtContribs->bindValue(':id', $this->id, PDO::PARAM_INT);
+         $updateGtContribs->execute();
+     }
+
+     public function __destruct()
+     {
+         $this->pdo = NULL;
      }
 
  }

@@ -27,7 +27,6 @@
           */
          try {
              $this->pdo = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->dbName . ';charset=UTF8;', $this->login, $this->password);
-           
          } catch (Exception $ex) {
              $message = 'Erreur P.D.O dans ' . $ex->getFile() . ' ligne ' . $ex->getLine() . ' : ' . $ex->getMessage();
              die($message);
@@ -45,6 +44,14 @@
              self::$_instance = new self();
          }
          return self::$_instance;
+     }
+
+     /**
+      * fermeture de la connexion à la base de données
+      */
+     public function __destruct()
+     {
+         $this->pdo = NULL;
      }
 
  }
